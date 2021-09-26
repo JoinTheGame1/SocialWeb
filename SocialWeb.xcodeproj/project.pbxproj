@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		0523F9D126AF0B13006EB1D2 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0523F9CF26AF0B13006EB1D2 /* FriendTableViewCell.xib */; };
 		0523F9D526B4B3BA006EB1D2 /* LoginAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */; };
 		057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9926F8C6BD004457C4 /* MySession.swift */; };
+		057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */; };
 		059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */; };
 		059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */; };
 		059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EE26BF72A300B3F2D8 /* PushAnimator.swift */; };
@@ -37,6 +38,7 @@
 		05E4839426738375006C80CB /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4839326738375006C80CB /* FriendModel.swift */; };
 		05E4839826739CDF006C80CB /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4839726739CDF006C80CB /* AllGroupsViewController.swift */; };
 		05E4839B2673BCCE006C80CB /* FriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4839A2673BCCE006C80CB /* FriendCollectionViewController.swift */; };
+		717D8BE2A61F14922864455A /* Pods_SocialWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7496D278540AEA0D753791 /* Pods_SocialWeb.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,7 @@
 		0523F9CF26AF0B13006EB1D2 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
 		0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnimation.swift; sourceTree = "<group>"; };
 		057B5C9926F8C6BD004457C4 /* MySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySession.swift; sourceTree = "<group>"; };
+		057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthorizeViewController.swift; sourceTree = "<group>"; };
 		059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
 		059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		059038EE26BF72A300B3F2D8 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
@@ -72,6 +75,9 @@
 		05E4839326738375006C80CB /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		05E4839726739CDF006C80CB /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
 		05E4839A2673BCCE006C80CB /* FriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewController.swift; sourceTree = "<group>"; };
+		2CD6ED9CE01AC529A85BA61A /* Pods-SocialWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWeb.debug.xcconfig"; path = "Target Support Files/Pods-SocialWeb/Pods-SocialWeb.debug.xcconfig"; sourceTree = "<group>"; };
+		7C7496D278540AEA0D753791 /* Pods_SocialWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BE1F977395193F131321E52 /* Pods-SocialWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWeb.release.xcconfig"; path = "Target Support Files/Pods-SocialWeb/Pods-SocialWeb.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717D8BE2A61F14922864455A /* Pods_SocialWeb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				05A67ED8266E97DA00F86425 /* LoginViewController.swift */,
+				057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */,
 				05E48395267385DB006C80CB /* AllGroups */,
 				05B96FE5266FD22200393175 /* My groups */,
 				05B96FDD266FBFAC00393175 /* My friends */,
@@ -137,6 +145,8 @@
 			children = (
 				05A67EBB266E56C600F86425 /* SocialWeb */,
 				05A67EBA266E56C600F86425 /* Products */,
+				EDBC6F16BFE0B58558040C23 /* Pods */,
+				F83C3142C733639AAA027CA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,6 +277,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		EDBC6F16BFE0B58558040C23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2CD6ED9CE01AC529A85BA61A /* Pods-SocialWeb.debug.xcconfig */,
+				9BE1F977395193F131321E52 /* Pods-SocialWeb.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F83C3142C733639AAA027CA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C7496D278540AEA0D753791 /* Pods_SocialWeb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,9 +301,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05A67ECD266E56CA00F86425 /* Build configuration list for PBXNativeTarget "SocialWeb" */;
 			buildPhases = (
+				E6429B14E81CB01168386FD3 /* [CP] Check Pods Manifest.lock */,
 				05A67EB5266E56C600F86425 /* Sources */,
 				05A67EB6266E56C600F86425 /* Frameworks */,
 				05A67EB7266E56C600F86425 /* Resources */,
+				920426B0C5752894E375B494 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,6 +364,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		920426B0C5752894E375B494 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocialWeb/Pods-SocialWeb-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocialWeb/Pods-SocialWeb-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SocialWeb/Pods-SocialWeb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6429B14E81CB01168386FD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialWeb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		05A67EB5266E56C600F86425 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -353,6 +424,7 @@
 				05E4839826739CDF006C80CB /* AllGroupsViewController.swift in Sources */,
 				05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */,
 				05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */,
+				057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */,
 				057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */,
 				059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */,
 				059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */,
@@ -507,6 +579,7 @@
 		};
 		05A67ECE266E56CA00F86425 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CD6ED9CE01AC529A85BA61A /* Pods-SocialWeb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -527,6 +600,7 @@
 		};
 		05A67ECF266E56CA00F86425 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BE1F977395193F131321E52 /* Pods-SocialWeb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
