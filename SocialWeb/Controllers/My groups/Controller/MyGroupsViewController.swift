@@ -3,8 +3,12 @@ import UIKit
 final class MyGroupsViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
+    let groupsAPI = GroupsAPI()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        groupsAPI.getGroups()
+        
         tableView.register(UINib(nibName: GroupCell.identifier, bundle: nil), forCellReuseIdentifier: GroupCell.identifier)
     }
     

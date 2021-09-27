@@ -45,7 +45,7 @@ class GroupCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func configure(_ group: GroupModel) {
+    func configure(_ group: Group) {
         avatarImageView.image = UIImage(named: group.avatarGroupName)
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
         avatarImageView.layer.borderWidth = 1

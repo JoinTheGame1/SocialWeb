@@ -8,10 +8,10 @@
 import Foundation
 
 class MySession {
-    let shared = MySession()
+    static let shared = MySession()
     
     var token: String = ""
-    var userId: Int = 0
+    var userId: String = ""
     
     private init(){}
 }

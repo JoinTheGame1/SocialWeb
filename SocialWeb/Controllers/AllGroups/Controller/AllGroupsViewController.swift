@@ -9,10 +9,14 @@ import UIKit
 
 final class AllGroupsViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
+    
+    let searchGroupsAPI = GroupsAPI()
     var allGroups = Array(Set(GroupStorage.allGroups).subtracting(GroupStorage.myGroups))
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchGroupsAPI.getSearchGroups()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: AllGroupsCell.identifier, bundle: nil), forCellReuseIdentifier: AllGroupsCell.identifier)

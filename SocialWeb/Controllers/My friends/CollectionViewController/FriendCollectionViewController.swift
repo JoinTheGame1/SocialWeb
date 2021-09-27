@@ -9,7 +9,7 @@ import UIKit
 
 class FriendCollectionViewController: UIViewController{
     private var collectionView: UICollectionView?
-    var friend: FriendModel!
+    var friend: Friend!
     
     override func viewDidLoad() {
         super.viewDidLoad()

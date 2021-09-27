@@ -38,6 +38,7 @@ class FriendCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -76,7 +77,7 @@ class FriendCollectionViewCell: UICollectionViewCell {
         friendImageView.clipsToBounds = true
     }
 
-    func configure(_ friend: FriendModel, _ index: Int) {
+    func configure(_ friend: Friend, _ index: Int) {
         friendImageView.image = UIImage(named: friend.photos[index])
     }
 }

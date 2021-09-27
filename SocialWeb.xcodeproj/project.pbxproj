@@ -18,11 +18,15 @@
 		0523F9D526B4B3BA006EB1D2 /* LoginAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */; };
 		057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9926F8C6BD004457C4 /* MySession.swift */; };
 		057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */; };
+		057B5C9F2700ED77004457C4 /* FriendsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9E2700ED77004457C4 /* FriendsAPI.swift */; };
+		057B5CA12701E912004457C4 /* PhotosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CA02701E912004457C4 /* PhotosAPI.swift */; };
+		057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CA62701F58A004457C4 /* ProfileCollectionViewCell.swift */; };
+		057B5CA92701F6EA004457C4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CA82701F6EA004457C4 /* ProfileViewController.swift */; };
+		057B5CAB2702027C004457C4 /* GroupsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CAA2702027C004457C4 /* GroupsAPI.swift */; };
 		059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */; };
 		059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */; };
 		059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EE26BF72A300B3F2D8 /* PushAnimator.swift */; };
 		059038F326BF81C300B3F2D8 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038F226BF81C300B3F2D8 /* MainNavigationController.swift */; };
-		0595C92326A57FE400839D44 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595C92226A57FE400839D44 /* ProfileViewController.swift */; };
 		0595C92826A97C1500839D44 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595C92726A97C1500839D44 /* LikeButton.swift */; };
 		05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */; };
 		05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBC266E56C600F86425 /* AppDelegate.swift */; };
@@ -53,11 +57,15 @@
 		0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnimation.swift; sourceTree = "<group>"; };
 		057B5C9926F8C6BD004457C4 /* MySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySession.swift; sourceTree = "<group>"; };
 		057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthorizeViewController.swift; sourceTree = "<group>"; };
+		057B5C9E2700ED77004457C4 /* FriendsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPI.swift; sourceTree = "<group>"; };
+		057B5CA02701E912004457C4 /* PhotosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAPI.swift; sourceTree = "<group>"; };
+		057B5CA62701F58A004457C4 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		057B5CA82701F6EA004457C4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		057B5CAA2702027C004457C4 /* GroupsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsAPI.swift; sourceTree = "<group>"; };
 		059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
 		059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		059038EE26BF72A300B3F2D8 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
 		059038F226BF81C300B3F2D8 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
-		0595C92226A57FE400839D44 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0595C92726A97C1500839D44 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAllPhotosViewController.swift; sourceTree = "<group>"; };
 		05A67EB9266E56C600F86425 /* SocialWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +108,16 @@
 			path = CollectionViewController;
 			sourceTree = "<group>";
 		};
+		057B5C9D2700ED52004457C4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				057B5C9E2700ED77004457C4 /* FriendsAPI.swift */,
+				057B5CA02701E912004457C4 /* PhotosAPI.swift */,
+				057B5CAA2702027C004457C4 /* GroupsAPI.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		059038E626BF582000B3F2D8 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +140,8 @@
 		0595C91F26A5039D00839D44 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				0595C92226A57FE400839D44 /* ProfileViewController.swift */,
+				057B5CA82701F6EA004457C4 /* ProfileViewController.swift */,
+				057B5CA62701F58A004457C4 /* ProfileCollectionViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -161,6 +180,7 @@
 		05A67EBB266E56C600F86425 /* SocialWeb */ = {
 			isa = PBXGroup;
 			children = (
+				057B5C9D2700ED52004457C4 /* Services */,
 				05A67ECA266E56CA00F86425 /* Info.plist */,
 				059038E726BF586100B3F2D8 /* Resources */,
 				059038E626BF582000B3F2D8 /* Storyboards */,
@@ -415,23 +435,27 @@
 				05B96FEB266FD2B400393175 /* MyGroupsViewController.swift in Sources */,
 				0523F9C726ADFACD006EB1D2 /* GroupCell.swift in Sources */,
 				0523F9C226AD75B4006EB1D2 /* LettersControl.swift in Sources */,
+				057B5CA12701E912004457C4 /* PhotosAPI.swift in Sources */,
 				05A67ED9266E97DA00F86425 /* LoginViewController.swift in Sources */,
+				057B5CAB2702027C004457C4 /* GroupsAPI.swift in Sources */,
 				05E4839426738375006C80CB /* FriendModel.swift in Sources */,
 				0523F9D526B4B3BA006EB1D2 /* LoginAnimation.swift in Sources */,
 				05B96FE2266FC05700393175 /* MyFriendsViewController.swift in Sources */,
 				0523F9BF26AC4708006EB1D2 /* FriendCollectionViewCell.swift in Sources */,
+				057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */,
 				05E4839B2673BCCE006C80CB /* FriendCollectionViewController.swift in Sources */,
 				05E4839826739CDF006C80CB /* AllGroupsViewController.swift in Sources */,
 				05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */,
+				057B5C9F2700ED77004457C4 /* FriendsAPI.swift in Sources */,
 				05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */,
 				057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */,
 				057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */,
+				057B5CA92701F6EA004457C4 /* ProfileViewController.swift in Sources */,
 				059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */,
 				059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */,
 				0523F9D026AF0B13006EB1D2 /* FriendTableViewCell.swift in Sources */,
 				05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */,
 				059038F326BF81C300B3F2D8 /* MainNavigationController.swift in Sources */,
-				0595C92326A57FE400839D44 /* ProfileViewController.swift in Sources */,
 				059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */,
 				05A819FD26BC4ABC00D28255 /* FriendAllPhotosView.swift in Sources */,
 				0595C92826A97C1500839D44 /* LikeButton.swift in Sources */,

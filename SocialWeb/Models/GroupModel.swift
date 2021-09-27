@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct GroupModel: Hashable {
+struct Group: Hashable {
     let id: Int
     let name: String
     let avatarGroupName: String
@@ -21,14 +21,14 @@ struct GroupModel: Hashable {
 
 struct GroupStorage {
     static var allGroups = [
-        GroupModel(id: 0, name: "Научные мемы", avatarGroupName: "Science memes"),
-        GroupModel(id: 1, name: "Мемы про животных", avatarGroupName: "Pet memes"),
-        GroupModel(id: 2, name: "Цитаты великих ученых", avatarGroupName: "Цитаты"),
-        GroupModel(id: 3, name: "Wild Math", avatarGroupName: "Wild Math"),
-        GroupModel(id: 4, name: "Квантовая механика", avatarGroupName: "Квантовая механика"),
-        GroupModel(id: 5, name: "Интересные факты", avatarGroupName: "Интересные факты"),
-        GroupModel(id: 6, name: "World of History", avatarGroupName: "World of History"),
-        GroupModel(id: 7, name: "Пикабу", avatarGroupName: "Пикабу")
+        Group(id: 0, name: "Научные мемы", avatarGroupName: "Science memes"),
+        Group(id: 1, name: "Мемы про животных", avatarGroupName: "Pet memes"),
+        Group(id: 2, name: "Цитаты великих ученых", avatarGroupName: "Цитаты"),
+        Group(id: 3, name: "Wild Math", avatarGroupName: "Wild Math"),
+        Group(id: 4, name: "Квантовая механика", avatarGroupName: "Квантовая механика"),
+        Group(id: 5, name: "Интересные факты", avatarGroupName: "Интересные факты"),
+        Group(id: 6, name: "World of History", avatarGroupName: "World of History"),
+        Group(id: 7, name: "Пикабу", avatarGroupName: "Пикабу")
     ]
     
     static var myGroups = allGroups.filter {$0.id == 1 || $0.id == 2 || $0.id == 3 || $0.id == 4}
