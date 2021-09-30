@@ -171,6 +171,15 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qZg-Qn-WZB">
                                 <rect key="frame" x="0.0" y="56" width="414" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="m5r-Qa-R8c">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                </searchBar>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aRc-Wf-iPa"/>
@@ -184,6 +193,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="All groups" id="Ybd-vO-lvG"/>
                     <connections>
+                        <outlet property="searchBar" destination="m5r-Qa-R8c" id="pMU-YB-aVS"/>
                         <outlet property="tableView" destination="qZg-Qn-WZB" id="Ich-oF-azg"/>
                     </connections>
                 </viewController>
@@ -191,7 +201,7 @@
             </objects>
             <point key="canvasLocation" x="1883" y="2235"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--My Photos-->
         <scene sceneID="XM0-7c-XBN">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="HO3-PC-ddL" customClass="ProfileViewController" customModule="SocialWeb" customModuleProvider="target" sceneMemberID="viewController">
@@ -201,7 +211,7 @@
                         <viewLayoutGuide key="safeArea" id="AVR-sz-Mis"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jpq-wc-Eki"/>
+                    <navigationItem key="navigationItem" title="My Photos" id="jpq-wc-Eki"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBI-ap-b3g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

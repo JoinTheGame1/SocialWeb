@@ -77,7 +77,13 @@ class FriendCollectionViewCell: UICollectionViewCell {
         friendImageView.clipsToBounds = true
     }
 
-    func configure(_ friend: Friend, _ index: Int) {
-        friendImageView.image = UIImage(named: friend.photos[index])
+    func configure(_ photo: Photo) {
+        do {
+            let url = URL(string: photo.sizes.last!.url)
+            let data = try Data(contentsOf: url!)
+            friendImageView.image = UIImage(data: data)
+        } catch {
+            print("error")
+        }
     }
 }

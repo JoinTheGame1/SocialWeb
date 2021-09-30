@@ -10,7 +10,7 @@ import UIKit
 final class ProfileCollectionViewCell: UICollectionViewCell {
     static let identifier = "ProfileCollectionViewCell"
     
-    private let profileImageView: UIImageView = {
+    private let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -24,7 +24,7 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(profileImageView)
+        contentView.addSubview(photoImageView)
         contentView.addSubview(likeButton)
     }
     
@@ -35,14 +35,14 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         NSLayoutConstraint.activate([
-            profileImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            profileImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            photoImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
             
             likeButton.widthAnchor.constraint(equalToConstant: 60),
             likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            likeButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 8),
+            likeButton.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 8),
             likeButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             likeButton.heightAnchor.constraint(equalToConstant: 24)
         ])
@@ -51,18 +51,23 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
-        profileImageView.layer.backgroundColor = UIColor.white.cgColor
-        profileImageView.layer.shadowColor = UIColor.darkGray.cgColor
-        profileImageView.layer.shadowRadius =  8
-        profileImageView.layer.shadowOpacity = 0.8
-        profileImageView.layer.borderWidth = 2
-        profileImageView.layer.borderColor = UIColor.black.cgColor
-        profileImageView.clipsToBounds = true
+        photoImageView.layer.cornerRadius = photoImageView.frame.size.height / 2
+        photoImageView.layer.backgroundColor = UIColor.white.cgColor
+        photoImageView.layer.borderWidth = 2
+        photoImageView.layer.borderColor = UIColor.black.cgColor
+        photoImageView.clipsToBounds = true
     }
 
-    func configure() {
-        profileImageView.image = UIImage(named: "me")
+    func configure(_ photo: Photo) {
+        do {
+            let url = URL(string: photo.sizes.last!.url)
+            let data = try Data(contentsOf: url!)
+            photoImageView.image = UIImage(data: data)
+            likeButton.counter = photo.likes.count
+            likeButton.liked = Bool(truncating: photo.likes.userLikes as NSNumber)
+        } catch {
+            print("error")
+        }
     }
     
 }

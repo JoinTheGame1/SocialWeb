@@ -15,3 +15,9 @@ class MySession {
     
     private init(){}
 }
+
+enum APIerror: Error {
+    case notData
+    case decodeError
+    case serverError
+}

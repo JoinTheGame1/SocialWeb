@@ -10,6 +10,8 @@ import UIKit
 class FriendCollectionViewController: UIViewController{
     private var collectionView: UICollectionView?
     var friend: Friend!
+    var friendPhotos = [Photo]()
+    let photosAPI = PhotosAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +23,23 @@ class FriendCollectionViewController: UIViewController{
         let itemWidth = view.frame.size.width / 2 - 3
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 20)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        guard let collectionView = collectionView else {
-            return
-        }
+        guard let collectionView = collectionView else { return }
         
+        let friendId = String(friend.id)
+        photosAPI.getPhotos(whom: friendId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(.decodeError):
+                print("Decode error...")
+            case .failure(.notData):
+                print("Have no data...")
+            case .failure(.serverError):
+                print("Server error...")
+            case .success(let photos):
+                self.friendPhotos = photos
+                self.collectionView!.reloadData()
+            }
+        }
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: FriendCollectionViewCell.identifier)
@@ -39,7 +54,7 @@ class FriendCollectionViewController: UIViewController{
         if segue.identifier == "showAllPhotos" {
             let view = segue.destination as? FriendAllPhotosViewController
             let indexPath = sender as! IndexPath
-            view?.allPhotos = friend.photos
+//            view?.allPhotos = friend.photos
             view?.index = indexPath.item
         }
     }
@@ -52,12 +67,12 @@ extension FriendCollectionViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        friend.photos.count
+        friendPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendCollectionViewCell.identifier, for: indexPath) as! FriendCollectionViewCell
-        cell.configure(friend, indexPath.item)
+        cell.configure(friendPhotos[indexPath.row])
         return cell
     }
     

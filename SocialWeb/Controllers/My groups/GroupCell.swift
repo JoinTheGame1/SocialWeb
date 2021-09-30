@@ -46,12 +46,18 @@ class GroupCell: UITableViewCell {
     }
     
     func configure(_ group: Group) {
-        avatarImageView.image = UIImage(named: group.avatarGroupName)
+        do {
+            let url = URL(string: group.photo)
+            let data = try Data(contentsOf: url!)
+            avatarImageView.image = UIImage(data: data)
+            nameLabel.text = group.name
+        } catch {
+            print("error")
+        }
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
         avatarImageView.layer.borderWidth = 1
         avatarImageView.layer.borderColor = UIColor.black.cgColor
         avatarBackground.layer.cornerRadius = avatarImageView.bounds.height / 2
-        nameLabel.text = group.name
     }
     
 }

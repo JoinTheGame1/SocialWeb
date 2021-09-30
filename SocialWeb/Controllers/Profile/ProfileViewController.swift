@@ -9,11 +9,26 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     private var collectionView: UICollectionView?
+    let myId = MySession.shared.userId
     let photosAPI = PhotosAPI()
+    var myPhotos = [Photo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photosAPI.getPhotos()
+        photosAPI.getPhotos(whom: self.myId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(.decodeError):
+                print("Decode error...")
+            case .failure(.notData):
+                print("Have no data...")
+            case .failure(.serverError):
+                print("Server error...")
+            case .success(let photos):
+                self.myPhotos = photos
+                self.collectionView?.reloadData()
+            }
+        }
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -41,12 +56,12 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        self.myPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.identifier, for: indexPath) as! ProfileCollectionViewCell
-        cell.configure()
+        cell.configure(self.myPhotos[indexPath.row])
         return cell
     }
 }

@@ -6,15 +6,32 @@ final class MyFriendsViewController: UIViewController{
     @IBOutlet weak var searchBar: UISearchBar!
     
     let friendsAPI = FriendsAPI()
+    var getFriends = [Friend]()
     var sortedFriends = [[Friend]]()
     var searchFriends = [Friend]()
     var firstLetters = [String]()
+    let myId = MySession.shared.userId
     var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friendsAPI.getFriends()
-        addLettersControl()
+        friendsAPI.getFriends(whom: self.myId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(.decodeError):
+                print("Decode error...")
+            case .failure(.notData):
+                print("Have no data...")
+            case .failure(.serverError):
+                print("Server error...")
+            case .success(let friends):
+                self.getFriends = friends
+                self.addLettersControl()
+                self.tableView.reloadData()
+            }
+        }
+        
+        
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,7 +52,7 @@ final class MyFriendsViewController: UIViewController{
     }
     
     private func addLettersControl() {
-        let friends = FriendStorage.shared.friends.sorted(by: {$0.lastName < $1.lastName})
+        let friends = self.getFriends.sorted(by: {$0.lastName < $1.lastName})
         getFirstLetters(friends)
         lettersControl.setLetters(firstLetters)
         lettersControl.addTarget(self, action: #selector(scrollToCity), for: .valueChanged)

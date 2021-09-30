@@ -34,7 +34,7 @@ class LettersControl: UIControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        stackView.frame = bounds
+        stackView?.frame = bounds
     }
     
     func setLetters(_ letters: [String]) {
