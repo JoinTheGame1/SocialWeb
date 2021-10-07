@@ -60,7 +60,6 @@ final class GroupsAPI {
         let url = baseUrl + method
         
         AF.request(url, method: .get, parameters: parameters).responseJSON { response in
-            print(response)
             if let error = response.error {
                 completion(.failure(.serverError))
                 print(error)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendCollectionViewCell: UICollectionViewCell {
     static let identifier = "FriendCollectionViewCell"
@@ -78,12 +79,9 @@ class FriendCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(_ photo: Photo) {
-        do {
-            let url = URL(string: photo.sizes.last!.url)
-            let data = try Data(contentsOf: url!)
-            friendImageView.image = UIImage(data: data)
-        } catch {
-            print("error")
-        }
+        let url = URL(string: photo.sizes.last!.url)
+        friendImageView.kf.setImage(with: url)
+        likeButton.counter = photo.likes.count
+        likeButton.liked = Bool(truncating: photo.likes.userLikes as NSNumber)
     }
 }

@@ -29,7 +29,6 @@ final class MyGroupsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        myGroups.sort(by: {$0.name < $1.name})
         self.tableView.reloadData()
     }
     

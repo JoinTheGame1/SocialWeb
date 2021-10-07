@@ -21,7 +21,6 @@ final class AllGroupsViewController: UIViewController{
         tableView.delegate = self
         searchBar.delegate = self
         tableView.register(UINib(nibName: AllGroupsCell.identifier, bundle: nil), forCellReuseIdentifier: AllGroupsCell.identifier)
-        //allGroups.sort(by: {$0.name < $1.name})
     }
     
     override func viewDidAppear(_ animated: Bool) {

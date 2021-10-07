@@ -54,7 +54,7 @@ class FriendCollectionViewController: UIViewController{
         if segue.identifier == "showAllPhotos" {
             let view = segue.destination as? FriendAllPhotosViewController
             let indexPath = sender as! IndexPath
-//            view?.allPhotos = friend.photos
+            view?.allPhotos = friendPhotos
             view?.index = indexPath.item
         }
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendAllPhotosView: UIView {
     var previousPhoto: UIImageView = {
@@ -26,7 +27,7 @@ class FriendAllPhotosView: UIView {
         return nextPhoto
     }()
     
-    var allPhotos: [String] = []
+    var allPhotos: [Photo] = []
     var currentIndex: Int = 0
     private var beginCenterXpreviousPhoto: CGFloat = 0
     private var beginCenterXcurrentPhoto: CGFloat = 0
@@ -47,7 +48,7 @@ class FriendAllPhotosView: UIView {
         beginCenterXnextPhoto = nextPhoto.center.x
     }
     
-    func configure(allPhotos: [String], currentIndex: Int) {
+    func configure(allPhotos: [Photo], currentIndex: Int) {
         self.allPhotos = allPhotos
         self.currentIndex = currentIndex
         setupPhotos()
@@ -100,9 +101,12 @@ class FriendAllPhotosView: UIView {
             return
         }
         
-        previousPhoto.image = UIImage(named: allPhotos[previousIndex()])
-        currentPhoto.image = UIImage(named: allPhotos[currentIndex])
-        nextPhoto.image = UIImage(named: allPhotos[nextIndex()])
+        var url = URL(string: allPhotos[previousIndex()].sizes.last!.url)
+        previousPhoto.kf.setImage(with: url)
+        url = URL(string: allPhotos[currentIndex].sizes.last!.url)
+        currentPhoto.kf.setImage(with: url)
+        url = URL(string: allPhotos[nextIndex()].sizes.last!.url)
+        nextPhoto.kf.setImage(with: url)
     }
     
     private func previousIndex() -> Int {
