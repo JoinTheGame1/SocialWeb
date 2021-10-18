@@ -5,6 +5,9 @@
 //  Created by Никитка on 11.06.2021.
 //
 
+import Foundation
+import RealmSwift
+
 // MARK: - GroupsResponse
 struct GroupsResponse: Codable {
     let response: Groups
@@ -17,16 +20,22 @@ struct Groups: Codable {
 }
 
 // MARK: - Group
-struct Group: Codable {
-    let id: Int
-    let name: String
-    let photo: String
+class Group: Object, Codable {
+    @objc dynamic var ownerId: Int = 0
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var photo: String = ""
 
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case photo = "photo_200"
     }
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
 }
 
 

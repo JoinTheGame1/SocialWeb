@@ -11,7 +11,7 @@ final class AllGroupsViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let searchGroupsAPI = GroupsAPI()
+    let searchGroupsService = GroupsService()
     var searchGroups = [Group]()
     
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ extension AllGroupsViewController: UISearchBarDelegate {
             self.tableView.reloadData()
         }
         else {
-            searchGroupsAPI.getSearchGroups(with: searchText) { result in
+            searchGroupsService.getSearchGroups(with: searchText) { result in
                 switch result {
                 case .failure(.decodeError):
                     print("Decode error...")

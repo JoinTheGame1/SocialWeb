@@ -370,8 +370,8 @@
                         <color key="selectedImageTintColor" name="loginBackground2"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4kR-gO-KBv" kind="relationship" relationship="viewControllers" id="0iX-AA-cPU"/>
                         <segue destination="ksi-QH-I4l" kind="relationship" relationship="viewControllers" id="qtK-GJ-qft"/>
+                        <segue destination="4kR-gO-KBv" kind="relationship" relationship="viewControllers" id="0iX-AA-cPU"/>
                         <segue destination="YzR-zt-Cho" kind="relationship" relationship="viewControllers" id="EGP-hs-d5q"/>
                     </connections>
                 </tabBarController>

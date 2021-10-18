@@ -59,10 +59,10 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(_ photo: Photo) {
-        let url = URL(string: photo.sizes.last!.url)
+        guard let url = URL(string: photo.sizes.last!.url) else { return }
         photoImageView.kf.setImage(with: url)
-        likeButton.counter = photo.likes.count
-        likeButton.liked = Bool(truncating: photo.likes.userLikes as NSNumber)
+        likeButton.counter = photo.likes!.count
+        likeButton.liked = Bool(truncating: photo.likes!.userLikes as NSNumber)
     }
     
 }

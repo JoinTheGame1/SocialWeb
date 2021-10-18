@@ -1,11 +1,14 @@
 import UIKit
+import RealmSwift
 
 final class MyFriendsViewController: UIViewController{
+    
     @IBOutlet private var tableView: UITableView!
     @IBOutlet weak var lettersControl: LettersControl!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let friendsAPI = FriendsAPI()
+    let friendsService = FriendsService()
+    let realmService = RealmService()
     var getFriends = [Friend]()
     var sortedFriends = [[Friend]]()
     var searchFriends = [Friend]()
@@ -15,22 +18,20 @@ final class MyFriendsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friendsAPI.getFriends(whom: self.myId) { [weak self] result in
+        friendsService.getFriends(whom: self.myId) { [weak self] in
             guard let self = self else { return }
-            switch result {
-            case .failure(.decodeError):
-                print("Decode error...")
-            case .failure(.notData):
-                print("Have no data...")
-            case .failure(.serverError):
-                print("Server error...")
-            case .success(let friends):
-                self.getFriends = friends
-                self.addLettersControl()
+            do {
+                let realm = try Realm()
+                print(realm.configuration.fileURL!)
+                self.getFriends = Array(realm.objects(Friend.self))
                 self.tableView.reloadData()
+            } catch {
+                print(error)
             }
+            self.addLettersControl()
+            self.tableView.reloadData()
         }
-        
+
         
         searchBar.delegate = self
         tableView.delegate = self

@@ -6,27 +6,25 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ProfileViewController: UIViewController {
     private var collectionView: UICollectionView?
     let myId = MySession.shared.userId
-    let photosAPI = PhotosAPI()
+    let photosService = PhotosService()
     var myPhotos = [Photo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photosAPI.getPhotos(whom: self.myId) { [weak self] result in
+        photosService.getPhotos(whom: self.myId) { [weak self]  in
             guard let self = self else { return }
-            switch result {
-            case .failure(.decodeError):
-                print("Decode error...")
-            case .failure(.notData):
-                print("Have no data...")
-            case .failure(.serverError):
-                print("Server error...")
-            case .success(let photos):
-                self.myPhotos = photos
+            do {
+                let realm = try Realm()
+                print(realm.configuration.fileURL!)
+                self.myPhotos = Array(realm.objects(Photo.self).filter("ownerId == %D", Int(self.myId)!))
                 self.collectionView?.reloadData()
+            } catch {
+                print(error)
             }
         }
         

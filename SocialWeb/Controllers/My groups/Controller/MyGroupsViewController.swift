@@ -1,26 +1,25 @@
 import UIKit
+import RealmSwift
 
 final class MyGroupsViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
-    let groupsAPI = GroupsAPI()
+    let groupsService = GroupsService()
+    let realmService = RealmService()
     let myId = MySession.shared.userId
     var myGroups = [Group]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        groupsAPI.getGroups(whom: self.myId) { [weak self] result in
+        groupsService.getGroups(whom: self.myId) { [weak self] in
             guard let self = self else { return }
-            switch result {
-            case .failure(.decodeError):
-                print("Decode error...")
-            case .failure(.notData):
-                print("Have no data...")
-            case .failure(.serverError):
-                print("Server error...")
-            case .success(let groups):
-                self.myGroups = groups
+            do {
+                let realm = try Realm()
+                print(realm.configuration.fileURL!)
+                self.myGroups = Array(realm.objects(Group.self).filter("ownerId == %D", Int(self.myId) ?? 0))
                 self.tableView.reloadData()
+            } catch {
+                print(error)
             }
         }
         

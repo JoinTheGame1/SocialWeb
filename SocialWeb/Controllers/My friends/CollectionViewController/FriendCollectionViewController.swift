@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendCollectionViewController: UIViewController{
     private var collectionView: UICollectionView?
     var friend: Friend!
     var friendPhotos = [Photo]()
-    let photosAPI = PhotosAPI()
+    let photosService = PhotosService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +26,15 @@ class FriendCollectionViewController: UIViewController{
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView = collectionView else { return }
         
-        let friendId = String(friend.id)
-        photosAPI.getPhotos(whom: friendId) { [weak self] result in
+        photosService.getPhotos(whom: String(friend.id)) { [weak self] in
             guard let self = self else { return }
-            switch result {
-            case .failure(.decodeError):
-                print("Decode error...")
-            case .failure(.notData):
-                print("Have no data...")
-            case .failure(.serverError):
-                print("Server error...")
-            case .success(let photos):
-                self.friendPhotos = photos
-                self.collectionView!.reloadData()
+            do {
+                let realm = try Realm()
+                print(realm.configuration.fileURL!)
+                self.friendPhotos = Array(realm.objects(Photo.self).filter("ownerId == %@", String(self.friend.id)))
+                self.collectionView?.reloadData()
+            } catch {
+                print(error)
             }
         }
         collectionView.delegate = self
