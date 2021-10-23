@@ -11,8 +11,9 @@ import RealmSwift
 class FriendCollectionViewController: UIViewController{
     private var collectionView: UICollectionView?
     var friend: Friend!
-    var friendPhotos = [Photo]()
-    let photosService = PhotosService()
+    private var realmPhotos: Results<Photo>?
+    private var token: NotificationToken?
+    private let photosService = PhotosService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,32 +27,47 @@ class FriendCollectionViewController: UIViewController{
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView = collectionView else { return }
         
-        photosService.getPhotos(whom: String(friend.id)) { [weak self] in
-            guard let self = self else { return }
-            do {
-                let realm = try Realm()
-                print(realm.configuration.fileURL!)
-                self.friendPhotos = Array(realm.objects(Photo.self).filter("ownerId == %@", String(self.friend.id)))
-                self.collectionView?.reloadData()
-            } catch {
-                print(error)
-            }
-        }
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: FriendCollectionViewCell.identifier)
-        view.addSubview(collectionView)
         collectionView.frame = view.bounds
         collectionView.backgroundColor = .white
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: FriendCollectionViewCell.identifier)
+        
+        view.addSubview(collectionView)
         navigationItem.title = friend!.firstName + " " + friend!.lastName
+        photosService.getPhotos(whom: String(friend.id))
+        pairTableAndRealm()
+    }
+    
+    private func pairTableAndRealm() {
+        guard let realm = try? Realm() else { return }
+        self.realmPhotos = realm.objects(Photo.self).filter("ownerId == %D", Int(self.friend.id))
+        self.token = realmPhotos?.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let self = self,
+                  let collectionView = self.collectionView
+            else { return }
+            
+            switch changes {
+            case .initial:
+                collectionView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                collectionView.performBatchUpdates({
+                    collectionView.insertItems(at: insertions.map({ IndexPath(row: $0, section: 0) }))
+                    collectionView.deleteItems(at: deletions.map({ IndexPath(row: $0, section: 0)}))
+                    collectionView.reloadItems(at: modifications.map({ IndexPath(row: $0, section: 0) }))
+                }, completion: nil)
+            case .error(let error):
+                fatalError("\(error)")
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAllPhotos" {
             let view = segue.destination as? FriendAllPhotosViewController
             let indexPath = sender as! IndexPath
-            view?.allPhotos = friendPhotos
+            view?.allPhotos = Array(realmPhotos!)
             view?.index = indexPath.item
         }
     }
@@ -64,12 +80,16 @@ extension FriendCollectionViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        friendPhotos.count
+        realmPhotos?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendCollectionViewCell.identifier, for: indexPath) as! FriendCollectionViewCell
-        cell.configure(friendPhotos[indexPath.row])
+        guard let photo = realmPhotos?[indexPath.row]
+        else {
+            return UICollectionViewCell()
+        }
+        cell.configure(photo)
         return cell
     }
     

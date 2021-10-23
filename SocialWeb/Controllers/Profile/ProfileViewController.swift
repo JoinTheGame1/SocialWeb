@@ -10,23 +10,13 @@ import RealmSwift
 
 class ProfileViewController: UIViewController {
     private var collectionView: UICollectionView?
-    let myId = MySession.shared.userId
-    let photosService = PhotosService()
-    var myPhotos = [Photo]()
+    private let myId = MySession.shared.userId
+    private let photosService = PhotosService()
+    private var realmPhotos: Results<Photo>?
+    private var token: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photosService.getPhotos(whom: self.myId) { [weak self]  in
-            guard let self = self else { return }
-            do {
-                let realm = try Realm()
-                print(realm.configuration.fileURL!)
-                self.myPhotos = Array(realm.objects(Photo.self).filter("ownerId == %D", Int(self.myId)!))
-                self.collectionView?.reloadData()
-            } catch {
-                print(error)
-            }
-        }
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -45,21 +35,47 @@ class ProfileViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         collectionView.backgroundColor = .white
+        
+        pairTableAndRealm()
+    }
+    
+    private func pairTableAndRealm() {
+        guard let realm = try? Realm() else { return }
+        self.realmPhotos = realm.objects(Photo.self).filter("ownerId == %D", Int(self.myId) ?? 0)
+        self.token = realmPhotos?.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let self = self,
+                  let collectionView = self.collectionView
+            else { return }
+            
+            switch changes {
+            case .initial:
+                collectionView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                collectionView.performBatchUpdates({
+                    collectionView.insertItems(at: insertions.map({ IndexPath(row: $0, section: 0) }))
+                    collectionView.deleteItems(at: deletions.map({ IndexPath(row: $0, section: 0)}))
+                    collectionView.reloadItems(at: modifications.map({ IndexPath(row: $0, section: 0) }))
+                }, completion: nil)
+            case .error(let error):
+                fatalError("\(error)")
+            }
+        }
     }
 }
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.myPhotos.count
+        self.realmPhotos?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.identifier, for: indexPath) as! ProfileCollectionViewCell
-        cell.configure(self.myPhotos[indexPath.row])
+        guard let photo = realmPhotos?[indexPath.row]
+        else {
+            return UICollectionViewCell()
+        }
+        print(photo)
+        cell.configure(photo)
         return cell
     }
 }

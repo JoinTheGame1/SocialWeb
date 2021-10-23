@@ -14,7 +14,7 @@ final class PhotosService {
     let token = MySession.shared.token
     let version = "5.131"
     
-    func getPhotos(whom userId: String, completion: @escaping () -> Void) {
+    func getPhotos(whom userId: String) {
         let method = "/photos.getAll"
         
         let parameters: Parameters = [
@@ -42,7 +42,7 @@ final class PhotosService {
                 print(error)
             }
             
-            self.realmService.cache(photos, param: "ownerId", filterText: userId, completion: completion)
+            self.realmService.cache(photos, param: "ownerId", filterText: userId)
         }
     }
 }

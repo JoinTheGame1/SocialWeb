@@ -1,5 +1,5 @@
 //
-//  LoginAnimation.swift
+//  LoginAnimationViewController.swift
 //  SocialWeb
 //
 //  Created by Никитка on 31.07.2021.
@@ -7,15 +7,24 @@
 
 import UIKit
 
-class LoginAnimation: UIViewController {
+class LoginAnimationViewController: UIViewController {
     @IBOutlet weak var dotsStackView: UIStackView!
     private let dot1 = UIView()
     private let dot2 = UIView()
     private let dot3 = UIView()
     private lazy var dots = [dot1, dot2, dot3]
     private var countAnimation = 0
+    
+    private let friendsService = FriendsService()
+    private let photosService = PhotosService()
+    private let groupsService = GroupsService()
+    private let myId = MySession.shared.userId
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        friendsService.getFriends(whom: self.myId)
+        photosService.getPhotos(whom: self.myId)
+        groupsService.getGroups(whom: self.myId)
         configureStack()
     }
     

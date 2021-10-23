@@ -7,31 +7,20 @@ final class MyFriendsViewController: UIViewController{
     @IBOutlet weak var lettersControl: LettersControl!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let friendsService = FriendsService()
-    let realmService = RealmService()
-    var getFriends = [Friend]()
-    var sortedFriends = [[Friend]]()
-    var searchFriends = [Friend]()
-    var firstLetters = [String]()
-    let myId = MySession.shared.userId
-    var searching = false
+    private let friendsService = FriendsService()
+    private let realmService = RealmService()
+    private var friends = [Friend]()
+    private var realmFriends: Results<Friend>?
+    private var sortedFriends = [[Friend]]()
+    private var searchFriends = [Friend]()
+    private var firstLetters = [String]()
+    private var token: NotificationToken?
+    private let myId = MySession.shared.userId
+    private var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friendsService.getFriends(whom: self.myId) { [weak self] in
-            guard let self = self else { return }
-            do {
-                let realm = try Realm()
-                print(realm.configuration.fileURL!)
-                self.getFriends = Array(realm.objects(Friend.self))
-                self.tableView.reloadData()
-            } catch {
-                print(error)
-            }
-            self.addLettersControl()
-            self.tableView.reloadData()
-        }
-
+        pairTableAndRealm()
         
         searchBar.delegate = self
         tableView.delegate = self
@@ -39,12 +28,35 @@ final class MyFriendsViewController: UIViewController{
         tableView.register(UINib(nibName: FriendTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: FriendTableViewCell.identifier)
     }
     
+    private func pairTableAndRealm() {
+        guard let realm = try? Realm() else { return }
+        self.realmFriends = realm.objects(Friend.self)
+        self.token = realmFriends?.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let self = self else { return }
+            switch changes {
+            case .initial:
+                self.setFriends()
+            case .update(_, _, _ , _):
+                self.setFriends()
+            case .error(let error):
+                fatalError("\(error)")
+            }
+        }
+    }
+    
+    private func setFriends() {
+        guard let realmFriends = self.realmFriends else { return }
+        self.friends = Array(realmFriends)
+        self.addLettersControl()
+        self.tableView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
-    @objc func scrollToCity() {
+    @objc private func scrollToFriend() {
         let letter = lettersControl?.selectedLetter
         guard let firstFriendIndex = sortedFriends.firstIndex(where: {String($0.first?.lastName.prefix(1) ?? "") == letter})
         else { return }
@@ -53,20 +65,20 @@ final class MyFriendsViewController: UIViewController{
     }
     
     private func addLettersControl() {
-        let friends = self.getFriends.sorted(by: {$0.lastName < $1.lastName})
+        let friends = self.friends.sorted(by: {$0.lastName < $1.lastName})
         getFirstLetters(friends)
         lettersControl.setLetters(firstLetters)
-        lettersControl.addTarget(self, action: #selector(scrollToCity), for: .valueChanged)
+        lettersControl.addTarget(self, action: #selector(scrollToFriend), for: .valueChanged)
         sortedFriends = sortByLetter(friends, firstLetters: firstLetters)
         
     }
     
-    func getFirstLetters(_ friends: [Friend]){
+    private func getFirstLetters(_ friends: [Friend]){
         let friendsNames = friends.map{$0.lastName}
         self.firstLetters = Array(Set(friendsNames.map{String($0.prefix(1))})).sorted()
     }
     
-    func sortByLetter(_ friends: [Friend], firstLetters: [String]) -> [[Friend]]{
+    private func sortByLetter(_ friends: [Friend], firstLetters: [String]) -> [[Friend]]{
         var sortedFriends: [[Friend]] = []
         firstLetters.forEach { letter in
             let friendsForLetter = friends.filter { String($0.lastName.prefix(1)) == letter }

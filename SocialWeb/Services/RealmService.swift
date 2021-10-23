@@ -9,33 +9,39 @@ import Foundation
 import RealmSwift
 
 class RealmService {
-    func cache<T: Object>(_ data: [T], param: String, filterText: String, completion: @escaping () -> Void) {
+    func cache<T: Object>(_ data: [T], param: String, filterText: String) {
         do {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             let realm = try Realm(configuration: config)
+            
+            print("-----RealmFile-----")
+            print(realm.configuration.fileURL!)
+            print("-------------------")
             
             let oldData = realm.objects(T.self).filter("\(param) == \(filterText)")
             realm.beginWrite()
             realm.delete(oldData)
             realm.add(data)
             try realm.commitWrite()
-            completion()
         } catch {
             print(error)
         }
     }
     
-    func cache<T: Object>(_ data: [T], completion: @escaping () -> Void) {
+    func cache<T: Object>(_ data: [T]) {
         do {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             let realm = try Realm(configuration: config)
+            
+            print("-----RealmFile-----")
+            print(realm.configuration.fileURL!)
+            print("-------------------")
             
             let oldData = realm.objects(T.self)
             realm.beginWrite()
             realm.delete(oldData)
             realm.add(data)
             try realm.commitWrite()
-            completion()
         } catch {
             print(error)
         }

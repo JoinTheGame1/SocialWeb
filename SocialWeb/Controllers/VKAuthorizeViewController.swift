@@ -68,7 +68,7 @@ extension VKAuthorizeViewController: WKNavigationDelegate {
         
         MySession.shared.token = token
         MySession.shared.userId = userId
-        performSegue(withIdentifier: "toTabBar", sender: self)
+        performSegue(withIdentifier: "toLoginAnimation", sender: self)
         
         decisionHandler(.cancel)
     }

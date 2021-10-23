@@ -16,7 +16,7 @@ final class FriendsService {
     let userId = MySession.shared.userId
     let version = "5.131"
     
-    func getFriends(whom userId: String, completion: @escaping () -> Void) {
+    func getFriends(whom userId: String) {
         let method = "/friends.get"
         
         let parameters: Parameters = [
@@ -45,7 +45,7 @@ final class FriendsService {
                 print(error)
             }
             
-            self.realmService.cache(friends, completion: completion)
+            self.realmService.cache(friends)
         }
     }
 }

@@ -15,7 +15,7 @@ final class GroupsService {
     let token = MySession.shared.token
     let version = "5.131"
     
-    func getGroups(whom userId: String, completion: @escaping () -> Void) {
+    func getGroups(whom userId: String) {
         let method = "/groups.get"
         
         let parameters: Parameters = [
@@ -43,7 +43,7 @@ final class GroupsService {
                 print(error)
             }
             groups.forEach { $0.ownerId = Int(userId) ?? 0 }
-            self.realmService.cache(groups, param: "ownerId", filterText: userId, completion: completion)
+            self.realmService.cache(groups, param: "ownerId", filterText: userId)
         }
     }
     

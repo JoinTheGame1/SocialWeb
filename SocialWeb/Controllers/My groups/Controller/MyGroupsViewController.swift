@@ -4,25 +4,18 @@ import RealmSwift
 final class MyGroupsViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
-    let groupsService = GroupsService()
-    let realmService = RealmService()
-    let myId = MySession.shared.userId
-    var myGroups = [Group]()
+    private let groupsService = GroupsService()
+    private let realmService = RealmService()
+    private let myId = MySession.shared.userId
+    private var myGroups = [Group]()
+    private var token: NotificationToken?
+    private var realmGroups: Results<Group>?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        groupsService.getGroups(whom: self.myId) { [weak self] in
-            guard let self = self else { return }
-            do {
-                let realm = try Realm()
-                print(realm.configuration.fileURL!)
-                self.myGroups = Array(realm.objects(Group.self).filter("ownerId == %D", Int(self.myId) ?? 0))
-                self.tableView.reloadData()
-            } catch {
-                print(error)
-            }
-        }
         
+        pairTableAndRealm()
         tableView.register(UINib(nibName: GroupCell.identifier, bundle: nil), forCellReuseIdentifier: GroupCell.identifier)
     }
     
@@ -31,26 +24,62 @@ final class MyGroupsViewController: UIViewController {
         self.tableView.reloadData()
     }
     
-    func unfollowGroup(_ row: Int) {
-        myGroups.remove(at: row)
-        tableView.reloadData()
+    private func unfollowGroup(_ group: Group) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.delete(group)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
+    private func pairTableAndRealm() {
+        guard let realm = try? Realm() else { return }
+        self.realmGroups = realm.objects(Group.self)
+        self.token = realmGroups?.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let self = self,
+                  let tableView = self.tableView
+            else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .automatic)
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                tableView.endUpdates()
+            case .error(let error):
+                fatalError("\(error)")
+            }
+        }
+    }
+
 }
 
 extension MyGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myGroups.count
+        realmGroups?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.identifier, for: indexPath) as! GroupCell
-        cell.configure(myGroups[indexPath.row])
+        guard let group = realmGroups?[indexPath.row]
+        else {
+            return UITableViewCell()
+        }
+        cell.configure(group)
         cell.buttonUnfollowGroup = { _ in
-            self.unfollowGroup(indexPath.row)
+            self.unfollowGroup(group)
         }
         return cell
     }

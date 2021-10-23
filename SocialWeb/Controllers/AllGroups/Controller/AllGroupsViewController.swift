@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class AllGroupsViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
@@ -33,7 +34,15 @@ final class AllGroupsViewController: UIViewController{
     
     func followGroup(_ row: Int) {
         let group = searchGroups.remove(at: row)
-        //GroupStorage.myGroups.append(group)
+        group.ownerId = Int(MySession.shared.userId)!
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(group)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
         tableView.reloadData()
     }
 }

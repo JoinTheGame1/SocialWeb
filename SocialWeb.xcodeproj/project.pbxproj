@@ -15,7 +15,7 @@
 		0523F9CC26ADFFFF006EB1D2 /* AllGroupsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0523F9CA26ADFFFF006EB1D2 /* AllGroupsCell.xib */; };
 		0523F9D026AF0B13006EB1D2 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523F9CE26AF0B13006EB1D2 /* FriendTableViewCell.swift */; };
 		0523F9D126AF0B13006EB1D2 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0523F9CF26AF0B13006EB1D2 /* FriendTableViewCell.xib */; };
-		0523F9D526B4B3BA006EB1D2 /* LoginAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */; };
+		0523F9D526B4B3BA006EB1D2 /* LoginAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523F9D426B4B3BA006EB1D2 /* LoginAnimationViewController.swift */; };
 		054A5644270E146400988887 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 054A5643270E146400988887 /* Kingfisher */; };
 		054A564A270E18F000988887 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 054A5649270E18F000988887 /* Alamofire */; };
 		054A564D270F9E4E00988887 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 054A564C270F9E4E00988887 /* RealmSwift */; };
@@ -58,7 +58,7 @@
 		0523F9CA26ADFFFF006EB1D2 /* AllGroupsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllGroupsCell.xib; sourceTree = "<group>"; };
 		0523F9CE26AF0B13006EB1D2 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		0523F9CF26AF0B13006EB1D2 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
-		0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnimation.swift; sourceTree = "<group>"; };
+		0523F9D426B4B3BA006EB1D2 /* LoginAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnimationViewController.swift; sourceTree = "<group>"; };
 		054A564E2718798900988887 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		057B5C9926F8C6BD004457C4 /* MySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySession.swift; sourceTree = "<group>"; };
 		057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthorizeViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				05A67ED8266E97DA00F86425 /* LoginViewController.swift */,
+				0523F9D426B4B3BA006EB1D2 /* LoginAnimationViewController.swift */,
 				057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */,
 				05E48395267385DB006C80CB /* AllGroups */,
 				05B96FE5266FD22200393175 /* My groups */,
@@ -210,7 +211,6 @@
 			children = (
 				0595C92726A97C1500839D44 /* LikeButton.swift */,
 				0523F9C126AD75B4006EB1D2 /* LettersControl.swift */,
-				0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */,
 				059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */,
 				059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */,
 				059038EE26BF72A300B3F2D8 /* PushAnimator.swift */,
@@ -393,7 +393,7 @@
 				05A67ED9266E97DA00F86425 /* LoginViewController.swift in Sources */,
 				057B5CAB2702027C004457C4 /* GroupsService.swift in Sources */,
 				05E4839426738375006C80CB /* FriendModel.swift in Sources */,
-				0523F9D526B4B3BA006EB1D2 /* LoginAnimation.swift in Sources */,
+				0523F9D526B4B3BA006EB1D2 /* LoginAnimationViewController.swift in Sources */,
 				05B96FE2266FC05700393175 /* MyFriendsViewController.swift in Sources */,
 				054A564F2718798900988887 /* RealmService.swift in Sources */,
 				0523F9BF26AC4708006EB1D2 /* FriendCollectionViewCell.swift in Sources */,
