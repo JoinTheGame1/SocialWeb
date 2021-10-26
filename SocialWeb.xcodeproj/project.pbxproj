@@ -34,6 +34,8 @@
 		059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EE26BF72A300B3F2D8 /* PushAnimator.swift */; };
 		059038F326BF81C300B3F2D8 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038F226BF81C300B3F2D8 /* MainNavigationController.swift */; };
 		0595C92826A97C1500839D44 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595C92726A97C1500839D44 /* LikeButton.swift */; };
+		05A13D1F27289D980052104F /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D1E27289D980052104F /* FirebaseUser.swift */; };
+		05A13D2127289DA90052104F /* FirebaseGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D2027289DA90052104F /* FirebaseGroup.swift */; };
 		05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */; };
 		05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBC266E56C600F86425 /* AppDelegate.swift */; };
 		05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBE266E56C600F86425 /* SceneDelegate.swift */; };
@@ -76,6 +78,8 @@
 		059038EE26BF72A300B3F2D8 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
 		059038F226BF81C300B3F2D8 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		0595C92726A97C1500839D44 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		05A13D1E27289D980052104F /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
+		05A13D2027289DA90052104F /* FirebaseGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGroup.swift; sourceTree = "<group>"; };
 		05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAllPhotosViewController.swift; sourceTree = "<group>"; };
 		05A67EB9266E56C600F86425 /* SocialWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A67EBC266E56C600F86425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 				05E4839126738362006C80CB /* GroupModel.swift */,
 				05E4839326738375006C80CB /* FriendModel.swift */,
 				057B5CAC2703E473004457C4 /* PhotoModel.swift */,
+				05A13D1E27289D980052104F /* FirebaseUser.swift */,
+				05A13D2027289DA90052104F /* FirebaseGroup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,7 +332,6 @@
 				70B8A4FBDD916A8ECCF8F928 /* Pods-SocialWeb.debug.xcconfig */,
 				B9B89BDB960AA642917CA8B3 /* Pods-SocialWeb.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -383,7 +388,7 @@
 			packageReferences = (
 				054A5642270E146400988887 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				054A5648270E18F000988887 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */,
+				054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 05A67EBA266E56C600F86425 /* Products */;
 			projectDirPath = "";
@@ -471,6 +476,7 @@
 				054A564F2718798900988887 /* RealmService.swift in Sources */,
 				0523F9BF26AC4708006EB1D2 /* FriendCollectionViewCell.swift in Sources */,
 				057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */,
+				05A13D1F27289D980052104F /* FirebaseUser.swift in Sources */,
 				05E4839B2673BCCE006C80CB /* FriendCollectionViewController.swift in Sources */,
 				05E4839826739CDF006C80CB /* AllGroupsViewController.swift in Sources */,
 				05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */,
@@ -484,6 +490,7 @@
 				059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */,
 				0523F9D026AF0B13006EB1D2 /* FriendTableViewCell.swift in Sources */,
 				05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */,
+				05A13D2127289DA90052104F /* FirebaseGroup.swift in Sources */,
 				059038F326BF81C300B3F2D8 /* MainNavigationController.swift in Sources */,
 				059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */,
 				05A819FD26BC4ABC00D28255 /* FriendAllPhotosView.swift in Sources */,
@@ -712,7 +719,7 @@
 				minimumVersion = 5.4.4;
 			};
 		};
-		054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */ = {
+		054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
@@ -735,7 +742,7 @@
 		};
 		054A564C270F9E4E00988887 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */;
+			package = 054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
