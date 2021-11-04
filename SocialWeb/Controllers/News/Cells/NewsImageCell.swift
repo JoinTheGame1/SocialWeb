@@ -19,7 +19,6 @@ class NewsImageCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubview(myImageView)
         setupImageView()
     }
@@ -35,17 +34,16 @@ class NewsImageCell: UITableViewCell {
     
     private func setupImageView (){
         NSLayoutConstraint.activate([
-            myImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            myImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             myImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             myImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            myImageView.heightAnchor.constraint(equalToConstant: frame.width * 4/3)
+            myImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     
     func configure(with imageUrl: String) {
         let url = URL(string: imageUrl)
         myImageView.kf.setImage(with: url)
-        
         
     }
 }

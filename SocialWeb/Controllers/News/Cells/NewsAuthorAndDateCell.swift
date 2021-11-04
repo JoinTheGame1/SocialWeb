@@ -48,6 +48,7 @@ class NewsAuthorAndDateCell: UITableViewCell {
         NSLayoutConstraint.activate([
             authorAvatarImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             authorAvatarImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            authorAvatarImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             authorAvatarImage.heightAnchor.constraint(equalToConstant: 50),
             authorAvatarImage.widthAnchor.constraint(equalToConstant: 50),
             
@@ -61,7 +62,9 @@ class NewsAuthorAndDateCell: UITableViewCell {
         ])
     }
     
-    public func configure(with authorName: String, date: String) {
+    public func configure(with authorImage: String, authorName: String, date: String) {
+        let url = URL(string: authorImage)
+        authorAvatarImage.kf.setImage(with: url)
         authorNameLabel.text = authorName
         dateLabel.text = date
     }

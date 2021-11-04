@@ -462,6 +462,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8vY-aY-jyM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="loginBackground1"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -481,6 +482,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bou-qd-n3M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="loginBackground1"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -500,6 +502,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zyj-Pv-DJ9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="loginBackground1"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -519,6 +522,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iaz-bS-tE1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="loginBackground1"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
