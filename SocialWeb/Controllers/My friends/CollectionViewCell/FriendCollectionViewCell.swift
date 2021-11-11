@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendCollectionViewCell: UICollectionViewCell {
     static let identifier = "FriendCollectionViewCell"
@@ -38,6 +39,7 @@ class FriendCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -76,7 +78,10 @@ class FriendCollectionViewCell: UICollectionViewCell {
         friendImageView.clipsToBounds = true
     }
 
-    func configure(_ friend: FriendModel, _ index: Int) {
-        friendImageView.image = UIImage(named: friend.photos[index])
+    func configure(_ photo: Photo) {
+        let url = URL(string: photo.sizes.last!.url)
+        friendImageView.kf.setImage(with: url)
+        likeButton.counter = photo.likes.count
+        likeButton.liked = Bool(truncating: photo.likes.userLikes as NSNumber)
     }
 }

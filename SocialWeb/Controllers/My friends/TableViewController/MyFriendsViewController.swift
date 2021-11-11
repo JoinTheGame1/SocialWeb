@@ -5,15 +5,33 @@ final class MyFriendsViewController: UIViewController{
     @IBOutlet weak var lettersControl: LettersControl!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var sortedFriends = [[FriendModel]]()
-    var searchFriends = [FriendModel]()
+    let friendsAPI = FriendsAPI()
+    var getFriends = [Friend]()
+    var sortedFriends = [[Friend]]()
+    var searchFriends = [Friend]()
     var firstLetters = [String]()
+    let myId = MySession.shared.userId
     var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        friendsAPI.getFriends(whom: self.myId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(.decodeError):
+                print("Decode error...")
+            case .failure(.notData):
+                print("Have no data...")
+            case .failure(.serverError):
+                print("Server error...")
+            case .success(let friends):
+                self.getFriends = friends
+                self.addLettersControl()
+                self.tableView.reloadData()
+            }
+        }
         
-        addLettersControl()
+        
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
@@ -34,7 +52,7 @@ final class MyFriendsViewController: UIViewController{
     }
     
     private func addLettersControl() {
-        let friends = FriendStorage.shared.friends.sorted(by: {$0.lastName < $1.lastName})
+        let friends = self.getFriends.sorted(by: {$0.lastName < $1.lastName})
         getFirstLetters(friends)
         lettersControl.setLetters(firstLetters)
         lettersControl.addTarget(self, action: #selector(scrollToCity), for: .valueChanged)
@@ -42,13 +60,13 @@ final class MyFriendsViewController: UIViewController{
         
     }
     
-    func getFirstLetters(_ friends: [FriendModel]){
+    func getFirstLetters(_ friends: [Friend]){
         let friendsNames = friends.map{$0.lastName}
         self.firstLetters = Array(Set(friendsNames.map{String($0.prefix(1))})).sorted()
     }
     
-    func sortByLetter(_ friends: [FriendModel], firstLetters: [String]) -> [[FriendModel]]{
-        var sortedFriends: [[FriendModel]] = []
+    func sortByLetter(_ friends: [Friend], firstLetters: [String]) -> [[Friend]]{
+        var sortedFriends: [[Friend]] = []
         firstLetters.forEach { letter in
             let friendsForLetter = friends.filter { String($0.lastName.prefix(1)) == letter }
             sortedFriends.append(friendsForLetter)

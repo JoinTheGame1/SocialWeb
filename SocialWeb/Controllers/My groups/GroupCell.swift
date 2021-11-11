@@ -38,20 +38,19 @@ class GroupCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
-    func configure(_ group: GroupModel) {
-        avatarImageView.image = UIImage(named: group.avatarGroupName)
+    func configure(_ group: Group) {
+        let url = URL(string: group.photo)
+        avatarImageView.kf.setImage(with: url)
+        nameLabel.text = group.name
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
         avatarImageView.layer.borderWidth = 1
         avatarImageView.layer.borderColor = UIColor.black.cgColor
-        avatarBackground.layer.cornerRadius = avatarImageView.bounds.height / 2
-        nameLabel.text = group.name
     }
     
 }

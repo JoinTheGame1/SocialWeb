@@ -35,8 +35,9 @@ class FriendTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(_ friend: FriendModel) {
-        friendImageView.image = UIImage(named: friend.avatar)
+    func configure(_ friend: Friend) {
+        let url = URL(string: friend.photo100)
+        friendImageView.kf.setImage(with: url)
         friendImageView.layer.cornerRadius = friendImageView.bounds.height / 2
         friendImageView.layer.borderWidth = 1
         friendImageView.layer.borderColor = UIColor.black.cgColor

@@ -9,14 +9,18 @@ import UIKit
 
 final class AllGroupsViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
-    var allGroups = Array(Set(GroupStorage.allGroups).subtracting(GroupStorage.myGroups))
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    let searchGroupsAPI = GroupsAPI()
+    var searchGroups = [Group]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
         tableView.register(UINib(nibName: AllGroupsCell.identifier, bundle: nil), forCellReuseIdentifier: AllGroupsCell.identifier)
-        allGroups.sort(by: {$0.name < $1.name})
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -25,24 +29,23 @@ final class AllGroupsViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
     }
     
     func followGroup(_ row: Int) {
-        let group = allGroups.remove(at: row)
-        GroupStorage.myGroups.append(group)
+        let group = searchGroups.remove(at: row)
+        //GroupStorage.myGroups.append(group)
         tableView.reloadData()
     }
 }
 
 extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        allGroups.count
+        searchGroups.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AllGroupsCell.identifier, for: indexPath) as! AllGroupsCell
-        cell.configure(allGroups[indexPath.row])
+        cell.configure(searchGroups[indexPath.row])
         cell.buttonFollowGroup = { _ in
             self.followGroup(indexPath.row)
         }
@@ -50,5 +53,28 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension AllGroupsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            self.searchGroups = []
+            self.tableView.reloadData()
+        }
+        else {
+            searchGroupsAPI.getSearchGroups(with: searchText) { result in
+                switch result {
+                case .failure(.decodeError):
+                    print("Decode error...")
+                case .failure(.notData):
+                    print("Have no data...")
+                case .failure(.serverError):
+                    print("Server error...")
+                case .success(let groups):
+                    self.searchGroups = groups
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+}
 
 

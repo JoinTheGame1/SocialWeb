@@ -9,7 +9,7 @@ import UIKit
 
 class LikeButton: UIButton {
     
-    var counter = Int.random(in: 0...99)
+    var counter = 0
     var liked = false
     
     public override init(frame: CGRect) {

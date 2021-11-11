@@ -9,8 +9,8 @@ import UIKit
 
 class FriendAllPhotosViewController: UIViewController {
     @IBOutlet var friendAllPhotosView: FriendAllPhotosView!
-    var allPhotos: [String]!
-    var index: Int!
+    var allPhotos = [Photo]()
+    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
