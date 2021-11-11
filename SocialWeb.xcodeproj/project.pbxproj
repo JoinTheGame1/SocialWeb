@@ -15,16 +15,18 @@
 		0523F9CC26ADFFFF006EB1D2 /* AllGroupsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0523F9CA26ADFFFF006EB1D2 /* AllGroupsCell.xib */; };
 		0523F9D026AF0B13006EB1D2 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523F9CE26AF0B13006EB1D2 /* FriendTableViewCell.swift */; };
 		0523F9D126AF0B13006EB1D2 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0523F9CF26AF0B13006EB1D2 /* FriendTableViewCell.xib */; };
-		0523F9D526B4B3BA006EB1D2 /* LoginAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */; };
+		0523F9D526B4B3BA006EB1D2 /* LoginAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523F9D426B4B3BA006EB1D2 /* LoginAnimationViewController.swift */; };
 		054A5644270E146400988887 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 054A5643270E146400988887 /* Kingfisher */; };
 		054A564A270E18F000988887 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 054A5649270E18F000988887 /* Alamofire */; };
+		054A564D270F9E4E00988887 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 054A564C270F9E4E00988887 /* RealmSwift */; };
+		054A564F2718798900988887 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054A564E2718798900988887 /* RealmService.swift */; };
 		057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9926F8C6BD004457C4 /* MySession.swift */; };
 		057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */; };
-		057B5C9F2700ED77004457C4 /* FriendsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9E2700ED77004457C4 /* FriendsAPI.swift */; };
-		057B5CA12701E912004457C4 /* PhotosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CA02701E912004457C4 /* PhotosAPI.swift */; };
+		057B5C9F2700ED77004457C4 /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9E2700ED77004457C4 /* FriendsService.swift */; };
+		057B5CA12701E912004457C4 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CA02701E912004457C4 /* PhotosService.swift */; };
 		057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CA62701F58A004457C4 /* ProfileCollectionViewCell.swift */; };
 		057B5CA92701F6EA004457C4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CA82701F6EA004457C4 /* ProfileViewController.swift */; };
-		057B5CAB2702027C004457C4 /* GroupsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CAA2702027C004457C4 /* GroupsAPI.swift */; };
+		057B5CAB2702027C004457C4 /* GroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CAA2702027C004457C4 /* GroupsService.swift */; };
 		057B5CAD2703E473004457C4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CAC2703E473004457C4 /* PhotoModel.swift */; };
 		059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */; };
 		059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */; };
@@ -56,14 +58,15 @@
 		0523F9CA26ADFFFF006EB1D2 /* AllGroupsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllGroupsCell.xib; sourceTree = "<group>"; };
 		0523F9CE26AF0B13006EB1D2 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		0523F9CF26AF0B13006EB1D2 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
-		0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnimation.swift; sourceTree = "<group>"; };
+		0523F9D426B4B3BA006EB1D2 /* LoginAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnimationViewController.swift; sourceTree = "<group>"; };
+		054A564E2718798900988887 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		057B5C9926F8C6BD004457C4 /* MySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySession.swift; sourceTree = "<group>"; };
 		057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthorizeViewController.swift; sourceTree = "<group>"; };
-		057B5C9E2700ED77004457C4 /* FriendsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPI.swift; sourceTree = "<group>"; };
-		057B5CA02701E912004457C4 /* PhotosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAPI.swift; sourceTree = "<group>"; };
+		057B5C9E2700ED77004457C4 /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
+		057B5CA02701E912004457C4 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		057B5CA62701F58A004457C4 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		057B5CA82701F6EA004457C4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		057B5CAA2702027C004457C4 /* GroupsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsAPI.swift; sourceTree = "<group>"; };
+		057B5CAA2702027C004457C4 /* GroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsService.swift; sourceTree = "<group>"; };
 		057B5CAC2703E473004457C4 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
 		059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054A564D270F9E4E00988887 /* RealmSwift in Frameworks */,
 				054A5644270E146400988887 /* Kingfisher in Frameworks */,
 				054A564A270E18F000988887 /* Alamofire in Frameworks */,
 			);
@@ -113,9 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				057B5C9926F8C6BD004457C4 /* MySession.swift */,
-				057B5C9E2700ED77004457C4 /* FriendsAPI.swift */,
-				057B5CA02701E912004457C4 /* PhotosAPI.swift */,
-				057B5CAA2702027C004457C4 /* GroupsAPI.swift */,
+				057B5C9E2700ED77004457C4 /* FriendsService.swift */,
+				057B5CA02701E912004457C4 /* PhotosService.swift */,
+				057B5CAA2702027C004457C4 /* GroupsService.swift */,
+				054A564E2718798900988887 /* RealmService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				05A67ED8266E97DA00F86425 /* LoginViewController.swift */,
+				0523F9D426B4B3BA006EB1D2 /* LoginAnimationViewController.swift */,
 				057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */,
 				05E48395267385DB006C80CB /* AllGroups */,
 				05B96FE5266FD22200393175 /* My groups */,
@@ -205,7 +211,6 @@
 			children = (
 				0595C92726A97C1500839D44 /* LikeButton.swift */,
 				0523F9C126AD75B4006EB1D2 /* LettersControl.swift */,
-				0523F9D426B4B3BA006EB1D2 /* LoginAnimation.swift */,
 				059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */,
 				059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */,
 				059038EE26BF72A300B3F2D8 /* PushAnimator.swift */,
@@ -316,6 +321,7 @@
 			packageProductDependencies = (
 				054A5643270E146400988887 /* Kingfisher */,
 				054A5649270E18F000988887 /* Alamofire */,
+				054A564C270F9E4E00988887 /* RealmSwift */,
 			);
 			productName = SocialWeb;
 			productReference = 05A67EB9266E56C600F86425 /* SocialWeb.app */;
@@ -347,6 +353,7 @@
 			packageReferences = (
 				054A5642270E146400988887 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				054A5648270E18F000988887 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 05A67EBA266E56C600F86425 /* Products */;
 			projectDirPath = "";
@@ -382,18 +389,19 @@
 				05B96FEB266FD2B400393175 /* MyGroupsViewController.swift in Sources */,
 				0523F9C726ADFACD006EB1D2 /* GroupCell.swift in Sources */,
 				0523F9C226AD75B4006EB1D2 /* LettersControl.swift in Sources */,
-				057B5CA12701E912004457C4 /* PhotosAPI.swift in Sources */,
+				057B5CA12701E912004457C4 /* PhotosService.swift in Sources */,
 				05A67ED9266E97DA00F86425 /* LoginViewController.swift in Sources */,
-				057B5CAB2702027C004457C4 /* GroupsAPI.swift in Sources */,
+				057B5CAB2702027C004457C4 /* GroupsService.swift in Sources */,
 				05E4839426738375006C80CB /* FriendModel.swift in Sources */,
-				0523F9D526B4B3BA006EB1D2 /* LoginAnimation.swift in Sources */,
+				0523F9D526B4B3BA006EB1D2 /* LoginAnimationViewController.swift in Sources */,
 				05B96FE2266FC05700393175 /* MyFriendsViewController.swift in Sources */,
+				054A564F2718798900988887 /* RealmService.swift in Sources */,
 				0523F9BF26AC4708006EB1D2 /* FriendCollectionViewCell.swift in Sources */,
 				057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */,
 				05E4839B2673BCCE006C80CB /* FriendCollectionViewController.swift in Sources */,
 				05E4839826739CDF006C80CB /* AllGroupsViewController.swift in Sources */,
 				05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */,
-				057B5C9F2700ED77004457C4 /* FriendsAPI.swift in Sources */,
+				057B5C9F2700ED77004457C4 /* FriendsService.swift in Sources */,
 				05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */,
 				057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */,
 				057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */,
@@ -629,6 +637,14 @@
 				minimumVersion = 5.4.4;
 			};
 		};
+		054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -641,6 +657,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 054A5648270E18F000988887 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		054A564C270F9E4E00988887 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

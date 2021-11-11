@@ -112,7 +112,7 @@
                     <navigationItem key="navigationItem" id="VBw-2L-vqN"/>
                     <connections>
                         <outlet property="webView" destination="H8f-l6-uOo" id="d1d-Wu-8Zg"/>
-                        <segue destination="opE-fR-6I2" kind="show" identifier="toTabBar" id="8eP-5r-gKX"/>
+                        <segue destination="VI2-OF-ykl" kind="show" identifier="toLoginAnimation" id="pZ2-7N-g4X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lb-bp-bir" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -324,10 +324,10 @@
             </objects>
             <point key="canvasLocation" x="754" y="2952"/>
         </scene>
-        <!--Login Animation-->
+        <!--Login Animation View Controller-->
         <scene sceneID="O3N-td-22X">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="VI2-OF-ykl" customClass="LoginAnimation" customModule="SocialWeb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="VI2-OF-ykl" customClass="LoginAnimationViewController" customModule="SocialWeb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bfb-Qi-Fpu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGW-Qj-bwS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1851" y="-627"/>
+            <point key="canvasLocation" x="754" y="-627"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EwA-IJ-smo">
@@ -370,8 +370,8 @@
                         <color key="selectedImageTintColor" name="loginBackground2"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4kR-gO-KBv" kind="relationship" relationship="viewControllers" id="0iX-AA-cPU"/>
                         <segue destination="ksi-QH-I4l" kind="relationship" relationship="viewControllers" id="qtK-GJ-qft"/>
+                        <segue destination="4kR-gO-KBv" kind="relationship" relationship="viewControllers" id="0iX-AA-cPU"/>
                         <segue destination="YzR-zt-Cho" kind="relationship" relationship="viewControllers" id="EGP-hs-d5q"/>
                     </connections>
                 </tabBarController>
@@ -437,9 +437,6 @@
             <point key="canvasLocation" x="-310" y="858"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8eP-5r-gKX"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="bukovki" width="1920" height="512"/>
         <image name="command.circle" catalog="system" width="128" height="121"/>

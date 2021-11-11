@@ -40,21 +40,6 @@ final class VKAuthorizeViewController: UIViewController {
         let request = URLRequest(url: urlComponents.url!)
 
         webView.load(request)
-//        let path = "/authorize"
-//        let url = baseUrl + path
-//        let parameters: Parameters = [
-//            "client_id" : "7929153",
-//            "display" : "mobile",
-//            "redirect_uri" : "https://oauth.vk.com/blank.html",
-//            "scope" : "262150",
-//            "respose_type" : "token",
-//            "v" : "5.68",
-//            "revoke" : "1"
-//        ]
-//
-//        AF.request(url, method: .get, parameters: parameters).responseJSON { response in
-//            print(response)
-//        }
     }
 }
 
@@ -83,8 +68,7 @@ extension VKAuthorizeViewController: WKNavigationDelegate {
         
         MySession.shared.token = token
         MySession.shared.userId = userId
-        
-        performSegue(withIdentifier: "toTabBar", sender: self)
+        performSegue(withIdentifier: "toLoginAnimation", sender: self)
         
         decisionHandler(.cancel)
     }

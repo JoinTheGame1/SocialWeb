@@ -7,14 +7,16 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 final class FriendsService {
+    let realmService = RealmService()
     let baseUrl = "https://api.vk.com/method"
     let token = MySession.shared.token
     let userId = MySession.shared.userId
     let version = "5.131"
     
-    func getFriends(whom userId: String, completion: @escaping (Result<[Friend], APIerror>) -> Void) {
+    func getFriends(whom userId: String) {
         let method = "/friends.get"
         
         let parameters: Parameters = [
@@ -30,22 +32,20 @@ final class FriendsService {
         
         AF.request(url, method: .get, parameters: parameters).responseJSON { response in
             if let error = response.error {
-                completion(.failure(.serverError))
                 print(error)
             }
             
-            guard let data = response.data else {
-                completion(.failure(.notData))
-                return
-            }
+            guard let data = response.data else { return }
+            var friends = [Friend]()
             
             do {
-                let responceFriends = try JSONDecoder().decode(FriendsResponse.self, from: data)
-                let friends = responceFriends.response.items
-                completion(.success(friends))
+                let friendsResponse = try JSONDecoder().decode(FriendsResponse.self, from: data)
+                friends = friendsResponse.response.items
             } catch {
-                completion(.failure(.decodeError))
+                print(error)
             }
+            
+            self.realmService.cache(friends)
         }
     }
 }

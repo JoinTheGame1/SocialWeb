@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class AllGroupsViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let searchGroupsAPI = GroupsAPI()
+    let searchGroupsService = GroupsService()
     var searchGroups = [Group]()
     
     override func viewDidLoad() {
@@ -33,7 +34,15 @@ final class AllGroupsViewController: UIViewController{
     
     func followGroup(_ row: Int) {
         let group = searchGroups.remove(at: row)
-        //GroupStorage.myGroups.append(group)
+        group.ownerId = Int(MySession.shared.userId)!
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(group)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
         tableView.reloadData()
     }
 }
@@ -60,7 +69,7 @@ extension AllGroupsViewController: UISearchBarDelegate {
             self.tableView.reloadData()
         }
         else {
-            searchGroupsAPI.getSearchGroups(with: searchText) { result in
+            searchGroupsService.getSearchGroups(with: searchText) { result in
                 switch result {
                 case .failure(.decodeError):
                     print("Decode error...")
