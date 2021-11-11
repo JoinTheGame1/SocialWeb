@@ -21,6 +21,7 @@ class FirebaseUser {
         self.ref = nil
         self.groups = []
     }
+    
     init?(snapshot: DataSnapshot) {
         guard
             let value = snapshot.value as? [String: Any],

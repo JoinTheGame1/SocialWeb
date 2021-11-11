@@ -1,21 +1,19 @@
 //
-//  LikeButton.swift
+//  RepostButton.swift
 //  SocialWeb
 //
-//  Created by Никитка on 22.07.2021.
+//  Created by Никитка on 02.11.2021.
 //
 
 import UIKit
 
-class LikeButton: UIButton {
-    
+class RepostButton: UIButton {
     var counter = 0
-    var liked = false
+    var reposted = false
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setNeedsDisplay()
-        addTarget(self, action: #selector(onTap(_:)), for: .touchUpInside)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -23,11 +21,11 @@ class LikeButton: UIButton {
         setNeedsDisplay()
     }
     
-    public func configure(counter: Int, liked: Bool) {
+    public func configure(counter: Int, reposted: Bool) {
         self.counter = counter
-        self.liked = liked
-        self.setImage(liked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart"), for: .normal)
-        self.imageView?.tintColor = liked ? UIColor.white : UIColor.systemTeal
+        self.reposted = reposted
+        self.setImage(reposted ? UIImage(systemName: "arrowshape.turn.up.left.fill") : UIImage(systemName: "arrowshape.turn.up.left"), for: .normal)
+        self.imageView?.tintColor = reposted ? UIColor.white : UIColor.systemTeal
         let counterString: String?
         switch counter {
         case 0..<1000:
@@ -40,22 +38,23 @@ class LikeButton: UIButton {
         self.setTitle(counterString, for: .normal)
         self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
         self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 0)
-        self.backgroundColor = liked ? UIColor.systemPink : UIColor.clear
-        self.setTitleColor(liked ? UIColor.white : UIColor.systemTeal, for: .normal)
+        self.backgroundColor = reposted ? UIColor.systemBlue : UIColor.clear
+        self.setTitleColor(reposted ? UIColor.white : UIColor.systemTeal, for: .normal)
         self.clipsToBounds = true
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = 12.0
+        
+        addTarget(self, action: #selector(onTap(_:)), for: .touchUpInside)
     }
     
     @objc func onTap(_ sender: UIButton) {
-        self.liked.toggle()
+        self.reposted.toggle()
 
         UIButton.transition(with: self,
                             duration: 0.5,
                             options: [.transitionFlipFromLeft, .allowUserInteraction],
                             animations: {
-                                self.counter += self.liked ? 1 : -1
-                                self.configure(counter: self.counter, liked: self.liked)
+                                self.counter += self.reposted ? 1 : -1
+                                self.configure(counter: self.counter, reposted: self.reposted)
                             })
     }
 }
-

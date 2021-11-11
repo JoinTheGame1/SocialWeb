@@ -36,6 +36,16 @@
 		0595C92826A97C1500839D44 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595C92726A97C1500839D44 /* LikeButton.swift */; };
 		05A13D1F27289D980052104F /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D1E27289D980052104F /* FirebaseUser.swift */; };
 		05A13D2127289DA90052104F /* FirebaseGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D2027289DA90052104F /* FirebaseGroup.swift */; };
+		05A13D29272DB9DF0052104F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D28272DB9DF0052104F /* NewsViewController.swift */; };
+		05A13D2C272E1D640052104F /* NewsTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D2B272E1D640052104F /* NewsTextCell.swift */; };
+		05A13D2E272F5C8C0052104F /* NewsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D2D272F5C8C0052104F /* NewsImageCell.swift */; };
+		05A13D30273044BF0052104F /* NewsAuthorAndDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D2F273044BF0052104F /* NewsAuthorAndDateCell.swift */; };
+		05A13D3327304C2E0052104F /* MyDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D3227304C2E0052104F /* MyDateFormatter.swift */; };
+		05A13D37273059830052104F /* NewsTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D36273059830052104F /* NewsTestModel.swift */; };
+		05A13D39273171A30052104F /* RepostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D38273171A30052104F /* RepostButton.swift */; };
+		05A13D3B273176D00052104F /* BottomButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D3A273176D00052104F /* BottomButtonsCell.swift */; };
+		05A13D3F273177F40052104F /* CommentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D3E273177F40052104F /* CommentButton.swift */; };
+		05A13D412732129C0052104F /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D402732129C0052104F /* LikeView.swift */; };
 		05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */; };
 		05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBC266E56C600F86425 /* AppDelegate.swift */; };
 		05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBE266E56C600F86425 /* SceneDelegate.swift */; };
@@ -80,6 +90,16 @@
 		0595C92726A97C1500839D44 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		05A13D1E27289D980052104F /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		05A13D2027289DA90052104F /* FirebaseGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGroup.swift; sourceTree = "<group>"; };
+		05A13D28272DB9DF0052104F /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		05A13D2B272E1D640052104F /* NewsTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTextCell.swift; sourceTree = "<group>"; };
+		05A13D2D272F5C8C0052104F /* NewsImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageCell.swift; sourceTree = "<group>"; };
+		05A13D2F273044BF0052104F /* NewsAuthorAndDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAuthorAndDateCell.swift; sourceTree = "<group>"; };
+		05A13D3227304C2E0052104F /* MyDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDateFormatter.swift; sourceTree = "<group>"; };
+		05A13D36273059830052104F /* NewsTestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTestModel.swift; sourceTree = "<group>"; };
+		05A13D38273171A30052104F /* RepostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepostButton.swift; sourceTree = "<group>"; };
+		05A13D3A273176D00052104F /* BottomButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsCell.swift; sourceTree = "<group>"; };
+		05A13D3E273177F40052104F /* CommentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentButton.swift; sourceTree = "<group>"; };
+		05A13D402732129C0052104F /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAllPhotosViewController.swift; sourceTree = "<group>"; };
 		05A67EB9266E56C600F86425 /* SocialWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A67EBC266E56C600F86425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,12 +190,41 @@
 				05A67ED8266E97DA00F86425 /* LoginViewController.swift */,
 				0523F9D426B4B3BA006EB1D2 /* LoginAnimationViewController.swift */,
 				057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */,
+				05A13D25272DB7B00052104F /* News */,
 				05E48395267385DB006C80CB /* AllGroups */,
 				05B96FE5266FD22200393175 /* My groups */,
 				05B96FDD266FBFAC00393175 /* My friends */,
 				0595C91F26A5039D00839D44 /* Profile */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		05A13D25272DB7B00052104F /* News */ = {
+			isa = PBXGroup;
+			children = (
+				05A13D2A272E1BC10052104F /* Cells */,
+				05A13D28272DB9DF0052104F /* NewsViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		05A13D2A272E1BC10052104F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				05A13D2B272E1D640052104F /* NewsTextCell.swift */,
+				05A13D2D272F5C8C0052104F /* NewsImageCell.swift */,
+				05A13D2F273044BF0052104F /* NewsAuthorAndDateCell.swift */,
+				05A13D3A273176D00052104F /* BottomButtonsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		05A13D3127304C150052104F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				05A13D3227304C2E0052104F /* MyDateFormatter.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		05A67EB0266E56C600F86425 = {
@@ -199,6 +248,7 @@
 		05A67EBB266E56C600F86425 /* SocialWeb */ = {
 			isa = PBXGroup;
 			children = (
+				05A13D3127304C150052104F /* Helpers */,
 				054A56502726F77700988887 /* GoogleService-Info.plist */,
 				057B5C9D2700ED52004457C4 /* Services */,
 				05A67ECA266E56CA00F86425 /* Info.plist */,
@@ -224,11 +274,14 @@
 			isa = PBXGroup;
 			children = (
 				0595C92726A97C1500839D44 /* LikeButton.swift */,
+				05A13D38273171A30052104F /* RepostButton.swift */,
+				05A13D3E273177F40052104F /* CommentButton.swift */,
 				0523F9C126AD75B4006EB1D2 /* LettersControl.swift */,
 				059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */,
 				059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */,
 				059038EE26BF72A300B3F2D8 /* PushAnimator.swift */,
 				059038F226BF81C300B3F2D8 /* MainNavigationController.swift */,
+				05A13D402732129C0052104F /* LikeView.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -314,6 +367,7 @@
 				057B5CAC2703E473004457C4 /* PhotoModel.swift */,
 				05A13D1E27289D980052104F /* FirebaseUser.swift */,
 				05A13D2027289DA90052104F /* FirebaseGroup.swift */,
+				05A13D36273059830052104F /* NewsTestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -463,8 +517,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A13D3327304C2E0052104F /* MyDateFormatter.swift in Sources */,
 				05E4839226738362006C80CB /* GroupModel.swift in Sources */,
 				05B96FEB266FD2B400393175 /* MyGroupsViewController.swift in Sources */,
+				05A13D2E272F5C8C0052104F /* NewsImageCell.swift in Sources */,
 				0523F9C726ADFACD006EB1D2 /* GroupCell.swift in Sources */,
 				0523F9C226AD75B4006EB1D2 /* LettersControl.swift in Sources */,
 				057B5CA12701E912004457C4 /* PhotosService.swift in Sources */,
@@ -474,6 +530,8 @@
 				0523F9D526B4B3BA006EB1D2 /* LoginAnimationViewController.swift in Sources */,
 				05B96FE2266FC05700393175 /* MyFriendsViewController.swift in Sources */,
 				054A564F2718798900988887 /* RealmService.swift in Sources */,
+				05A13D2C272E1D640052104F /* NewsTextCell.swift in Sources */,
+				05A13D39273171A30052104F /* RepostButton.swift in Sources */,
 				0523F9BF26AC4708006EB1D2 /* FriendCollectionViewCell.swift in Sources */,
 				057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */,
 				05A13D1F27289D980052104F /* FirebaseUser.swift in Sources */,
@@ -484,14 +542,20 @@
 				05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */,
 				057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */,
 				057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */,
+				05A13D30273044BF0052104F /* NewsAuthorAndDateCell.swift in Sources */,
 				057B5CA92701F6EA004457C4 /* ProfileViewController.swift in Sources */,
 				057B5CAD2703E473004457C4 /* PhotoModel.swift in Sources */,
+				05A13D37273059830052104F /* NewsTestModel.swift in Sources */,
 				059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */,
 				059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */,
 				0523F9D026AF0B13006EB1D2 /* FriendTableViewCell.swift in Sources */,
+				05A13D3B273176D00052104F /* BottomButtonsCell.swift in Sources */,
+				05A13D3F273177F40052104F /* CommentButton.swift in Sources */,
 				05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */,
 				05A13D2127289DA90052104F /* FirebaseGroup.swift in Sources */,
+				05A13D412732129C0052104F /* LikeView.swift in Sources */,
 				059038F326BF81C300B3F2D8 /* MainNavigationController.swift in Sources */,
+				05A13D29272DB9DF0052104F /* NewsViewController.swift in Sources */,
 				059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */,
 				05A819FD26BC4ABC00D28255 /* FriendAllPhotosView.swift in Sources */,
 				0595C92826A97C1500839D44 /* LikeButton.swift in Sources */,

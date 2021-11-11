@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="opE-fR-6I2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LoginViewController-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" userLabel="LoginViewController" customClass="LoginViewController" customModule="SocialWeb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SocialWeb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,6 +210,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ze3-aY-Nqb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1883" y="1546"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="EWx-md-850">
+            <objects>
+                <viewController id="Zsh-cV-dgJ" customClass="NewsViewController" customModule="SocialWeb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZIV-ok-CwP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JZb-Tb-60e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="News" id="j0O-Cw-iGM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yOy-oD-q8T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="1546"/>
         </scene>
         <!--All groups-->
         <scene sceneID="hyV-pq-gh3">
@@ -427,6 +443,7 @@
                         <color key="selectedImageTintColor" name="loginBackground2"/>
                     </tabBar>
                     <connections>
+                        <segue destination="JBr-9g-9qh" kind="relationship" relationship="viewControllers" id="0Dd-B9-Zzc"/>
                         <segue destination="4kR-gO-KBv" kind="relationship" relationship="viewControllers" id="0iX-AA-cPU"/>
                         <segue destination="ksi-QH-I4l" kind="relationship" relationship="viewControllers" id="qtK-GJ-qft"/>
                         <segue destination="YzR-zt-Cho" kind="relationship" relationship="viewControllers" id="EGP-hs-d5q"/>
@@ -445,6 +462,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8vY-aY-jyM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="loginBackground1"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -464,6 +482,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bou-qd-n3M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="loginBackground1"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -483,6 +502,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zyj-Pv-DJ9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="loginBackground1"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -493,11 +513,33 @@
             </objects>
             <point key="canvasLocation" x="-310" y="858"/>
         </scene>
+        <!--News-->
+        <scene sceneID="iyk-yi-Omu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="JBr-9g-9qh" customClass="MainNavigationController" customModule="SocialWeb" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="newspaper" catalog="system" selectedImage="newspaper.fill" id="CPB-Xm-XyG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iaz-bS-tE1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="loginBackground1"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zsh-cV-dgJ" kind="relationship" relationship="rootViewController" id="9KU-AP-Ucm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUk-SW-s1V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="858"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bukovki" width="1920" height="512"/>
         <image name="command.circle" catalog="system" width="128" height="121"/>
         <image name="command.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="newspaper" catalog="system" width="128" height="108"/>
+        <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
