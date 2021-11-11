@@ -20,6 +20,7 @@
 		054A564A270E18F000988887 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 054A5649270E18F000988887 /* Alamofire */; };
 		054A564D270F9E4E00988887 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 054A564C270F9E4E00988887 /* RealmSwift */; };
 		054A564F2718798900988887 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054A564E2718798900988887 /* RealmService.swift */; };
+		054A56512726F77800988887 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 054A56502726F77700988887 /* GoogleService-Info.plist */; };
 		057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9926F8C6BD004457C4 /* MySession.swift */; };
 		057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */; };
 		057B5C9F2700ED77004457C4 /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5C9E2700ED77004457C4 /* FriendsService.swift */; };
@@ -33,6 +34,8 @@
 		059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EE26BF72A300B3F2D8 /* PushAnimator.swift */; };
 		059038F326BF81C300B3F2D8 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038F226BF81C300B3F2D8 /* MainNavigationController.swift */; };
 		0595C92826A97C1500839D44 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595C92726A97C1500839D44 /* LikeButton.swift */; };
+		05A13D1F27289D980052104F /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D1E27289D980052104F /* FirebaseUser.swift */; };
+		05A13D2127289DA90052104F /* FirebaseGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D2027289DA90052104F /* FirebaseGroup.swift */; };
 		05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */; };
 		05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBC266E56C600F86425 /* AppDelegate.swift */; };
 		05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBE266E56C600F86425 /* SceneDelegate.swift */; };
@@ -47,6 +50,7 @@
 		05E4839426738375006C80CB /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4839326738375006C80CB /* FriendModel.swift */; };
 		05E4839826739CDF006C80CB /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4839726739CDF006C80CB /* AllGroupsViewController.swift */; };
 		05E4839B2673BCCE006C80CB /* FriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4839A2673BCCE006C80CB /* FriendCollectionViewController.swift */; };
+		78AFA9B25E26069BA40E618E /* Pods_SocialWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2D40C9F645F4697AFF2DBC /* Pods_SocialWeb.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,7 @@
 		0523F9CF26AF0B13006EB1D2 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
 		0523F9D426B4B3BA006EB1D2 /* LoginAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAnimationViewController.swift; sourceTree = "<group>"; };
 		054A564E2718798900988887 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		054A56502726F77700988887 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		057B5C9926F8C6BD004457C4 /* MySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySession.swift; sourceTree = "<group>"; };
 		057B5C9B27009EC9004457C4 /* VKAuthorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthorizeViewController.swift; sourceTree = "<group>"; };
 		057B5C9E2700ED77004457C4 /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
@@ -73,6 +78,8 @@
 		059038EE26BF72A300B3F2D8 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
 		059038F226BF81C300B3F2D8 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		0595C92726A97C1500839D44 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		05A13D1E27289D980052104F /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
+		05A13D2027289DA90052104F /* FirebaseGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGroup.swift; sourceTree = "<group>"; };
 		05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAllPhotosViewController.swift; sourceTree = "<group>"; };
 		05A67EB9266E56C600F86425 /* SocialWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A67EBC266E56C600F86425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +96,9 @@
 		05E4839326738375006C80CB /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		05E4839726739CDF006C80CB /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
 		05E4839A2673BCCE006C80CB /* FriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewController.swift; sourceTree = "<group>"; };
+		6F2D40C9F645F4697AFF2DBC /* Pods_SocialWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B8A4FBDD916A8ECCF8F928 /* Pods-SocialWeb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWeb.debug.xcconfig"; path = "Target Support Files/Pods-SocialWeb/Pods-SocialWeb.debug.xcconfig"; sourceTree = "<group>"; };
+		B9B89BDB960AA642917CA8B3 /* Pods-SocialWeb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialWeb.release.xcconfig"; path = "Target Support Files/Pods-SocialWeb/Pods-SocialWeb.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,7 @@
 				054A564D270F9E4E00988887 /* RealmSwift in Frameworks */,
 				054A5644270E146400988887 /* Kingfisher in Frameworks */,
 				054A564A270E18F000988887 /* Alamofire in Frameworks */,
+				78AFA9B25E26069BA40E618E /* Pods_SocialWeb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +183,8 @@
 			children = (
 				05A67EBB266E56C600F86425 /* SocialWeb */,
 				05A67EBA266E56C600F86425 /* Products */,
+				BC9EEF811ED78F9F0A9ED9B7 /* Pods */,
+				2A99C7F55911F669286C34C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,6 +199,7 @@
 		05A67EBB266E56C600F86425 /* SocialWeb */ = {
 			isa = PBXGroup;
 			children = (
+				054A56502726F77700988887 /* GoogleService-Info.plist */,
 				057B5C9D2700ED52004457C4 /* Services */,
 				05A67ECA266E56CA00F86425 /* Info.plist */,
 				059038E726BF586100B3F2D8 /* Resources */,
@@ -298,8 +312,27 @@
 				05E4839126738362006C80CB /* GroupModel.swift */,
 				05E4839326738375006C80CB /* FriendModel.swift */,
 				057B5CAC2703E473004457C4 /* PhotoModel.swift */,
+				05A13D1E27289D980052104F /* FirebaseUser.swift */,
+				05A13D2027289DA90052104F /* FirebaseGroup.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2A99C7F55911F669286C34C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F2D40C9F645F4697AFF2DBC /* Pods_SocialWeb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC9EEF811ED78F9F0A9ED9B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70B8A4FBDD916A8ECCF8F928 /* Pods-SocialWeb.debug.xcconfig */,
+				B9B89BDB960AA642917CA8B3 /* Pods-SocialWeb.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,9 +342,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05A67ECD266E56CA00F86425 /* Build configuration list for PBXNativeTarget "SocialWeb" */;
 			buildPhases = (
+				4478454318393CDA8C7F78B7 /* [CP] Check Pods Manifest.lock */,
 				05A67EB5266E56C600F86425 /* Sources */,
 				05A67EB6266E56C600F86425 /* Frameworks */,
 				05A67EB7266E56C600F86425 /* Resources */,
+				7F348C80DDDAC93C0E2CEDC6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -375,10 +410,53 @@
 				0523F9C826ADFACD006EB1D2 /* GroupCell.xib in Resources */,
 				05A67EC4266E56C600F86425 /* Main.storyboard in Resources */,
 				0523F9CC26ADFFFF006EB1D2 /* AllGroupsCell.xib in Resources */,
+				054A56512726F77800988887 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4478454318393CDA8C7F78B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialWeb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F348C80DDDAC93C0E2CEDC6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocialWeb/Pods-SocialWeb-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocialWeb/Pods-SocialWeb-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SocialWeb/Pods-SocialWeb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05A67EB5266E56C600F86425 /* Sources */ = {
@@ -398,6 +476,7 @@
 				054A564F2718798900988887 /* RealmService.swift in Sources */,
 				0523F9BF26AC4708006EB1D2 /* FriendCollectionViewCell.swift in Sources */,
 				057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */,
+				05A13D1F27289D980052104F /* FirebaseUser.swift in Sources */,
 				05E4839B2673BCCE006C80CB /* FriendCollectionViewController.swift in Sources */,
 				05E4839826739CDF006C80CB /* AllGroupsViewController.swift in Sources */,
 				05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */,
@@ -411,6 +490,7 @@
 				059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */,
 				0523F9D026AF0B13006EB1D2 /* FriendTableViewCell.swift in Sources */,
 				05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */,
+				05A13D2127289DA90052104F /* FirebaseGroup.swift in Sources */,
 				059038F326BF81C300B3F2D8 /* MainNavigationController.swift in Sources */,
 				059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */,
 				05A819FD26BC4ABC00D28255 /* FriendAllPhotosView.swift in Sources */,
@@ -559,6 +639,7 @@
 		};
 		05A67ECE266E56CA00F86425 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70B8A4FBDD916A8ECCF8F928 /* Pods-SocialWeb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -570,7 +651,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = test.SocialWeb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SD.SocialWeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -579,6 +660,7 @@
 		};
 		05A67ECF266E56CA00F86425 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9B89BDB960AA642917CA8B3 /* Pods-SocialWeb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -590,7 +672,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = test.SocialWeb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SD.SocialWeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
