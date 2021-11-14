@@ -24,30 +24,27 @@ class Photo: Object, Codable {
     @objc dynamic var ownerId: Int = 0
     var sizes = List<Size>()
     @objc dynamic var likes: Like?
-    @objc dynamic var reposts: Repost?
 
     enum CodingKeys: String, CodingKey {
         case ownerId = "owner_id"
         case sizes
         case likes
-        case reposts
     }
 }
 
 //MARK: - Size
 class Size: Object, Codable {
     @objc dynamic var url: String
+    @objc dynamic var width: Int
+    @objc dynamic var height: Int
 }
 
 //MARK: - Like
 class Like: Object, Codable {
-    @objc dynamic var userLikes: Int
     @objc dynamic var count: Int
+    @objc dynamic var user_likes: Int
     
-    enum CodingKeys: String, CodingKey {
-        case userLikes = "user_likes"
-        case count
-    }
+    var liked: Bool { return user_likes == 1}
 }
 
 //MARK: - Repost

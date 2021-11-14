@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 final class PhotosService {
-    let realmService = RealmService()
     let baseUrl = "https://api.vk.com/method"
     let token = MySession.shared.token
     let version = "5.131"
@@ -34,15 +33,15 @@ final class PhotosService {
             
             guard let data = response.data else { return }
             var photos = [Photo]()
-            
-            do {
-                let photosResponce = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                photos = photosResponce.response.items
-            } catch {
-                print(error)
+            DispatchQueue.main.async {
+                do {
+                    let photosResponce = try JSONDecoder().decode(PhotosResponse.self, from: data)
+                    photos = photosResponce.response.items
+                } catch {
+                    print(error)
+                }
+                RealmService.shared.cache(photos, param: "ownerId", filterText: userId)
             }
-            
-            self.realmService.cache(photos, param: "ownerId", filterText: userId)
         }
     }
 }

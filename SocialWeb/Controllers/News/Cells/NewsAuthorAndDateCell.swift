@@ -44,6 +44,13 @@ class NewsAuthorAndDateCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        authorNameLabel.text = nil
+        dateLabel.text = nil
+        authorAvatarImage.image = nil
+    }
+    
     private func setupCell() {
         NSLayoutConstraint.activate([
             authorAvatarImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
@@ -62,10 +69,12 @@ class NewsAuthorAndDateCell: UITableViewCell {
         ])
     }
     
-    public func configure(with authorImage: String, authorName: String, date: String) {
-        let url = URL(string: authorImage)
-        authorAvatarImage.kf.setImage(with: url)
-        authorNameLabel.text = authorName
+    public func configure(profile: ProfileRepresentable?, date: String) {
+        guard let profile = profile,
+              let url = URL(string: profile.photo)
+        else { return }
+        authorNameLabel.text = profile.name
         dateLabel.text = date
+        authorAvatarImage.kf.setImage(with: url)
     }
 }

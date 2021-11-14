@@ -5,7 +5,7 @@ final class MyGroupsViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
     private let groupsService = GroupsService()
-    private let realmService = RealmService()
+    private let realm = RealmService.shared.realm
     private let myId = MySession.shared.userId
     private var myGroups = [Group]()
     private var token: NotificationToken?
@@ -26,10 +26,9 @@ final class MyGroupsViewController: UIViewController {
     
     private func unfollowGroup(_ group: Group) {
         do {
-            let realm = try Realm()
-            realm.beginWrite()
-            realm.delete(group)
-            try realm.commitWrite()
+            realm?.beginWrite()
+            realm?.delete(group)
+            try realm?.commitWrite()
         } catch {
             print(error)
         }
@@ -40,7 +39,7 @@ final class MyGroupsViewController: UIViewController {
     }
     
     private func pairTableAndRealm() {
-        guard let realm = try? Realm() else { return }
+        guard let realm = self.realm else { return }
         self.realmGroups = realm.objects(Group.self)
         self.token = realmGroups?.observe { [weak self] (changes: RealmCollectionChange) in
             guard let self = self,
@@ -72,6 +71,7 @@ extension MyGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.separatorStyle = .none
         let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.identifier, for: indexPath) as! GroupCell
         guard let group = realmGroups?[indexPath.row]
         else {

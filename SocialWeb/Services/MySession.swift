@@ -13,7 +13,7 @@ class MySession {
     var token: String = ""
     var userId: String = ""
     
-    private init(){}
+    private init() {}
 }
 
 enum APIerror: Error {
