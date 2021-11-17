@@ -10,7 +10,6 @@ import Alamofire
 import RealmSwift
 
 final class GroupsService {
-    let realmService = RealmService()
     let baseUrl = "https://api.vk.com/method"
     let token = MySession.shared.token
     let version = "5.131"
@@ -35,15 +34,16 @@ final class GroupsService {
             
             guard let data = response.data else { return }
             var groups = [Group]()
-            do {
-                let groupsResponse = try JSONDecoder().decode(GroupsResponse.self, from: data)
-                groups = groupsResponse.response.items
-                
-            } catch {
-                print(error)
+            DispatchQueue.main.async {
+                do {
+                    let groupsResponse = try JSONDecoder().decode(GroupsResponse.self, from: data)
+                    groups = groupsResponse.response.items
+                    
+                } catch {
+                    print(error)
+                }
+                RealmService.shared.cache(groups)
             }
-            groups.forEach { $0.ownerId = Int(userId) ?? 0 }
-            self.realmService.cache(groups, param: "ownerId", filterText: userId)
         }
     }
     
@@ -69,13 +69,14 @@ final class GroupsService {
                 completion(.failure(.notData))
                 return
             }
-            
-            do {
-                let groupsResponce = try JSONDecoder().decode(GroupsResponse.self, from: data)
-                let groups = groupsResponce.response.items
-                completion(.success(groups))
-            } catch {
-                completion(.failure(.decodeError))
+            DispatchQueue.main.async {
+                do {
+                    let groupsResponce = try JSONDecoder().decode(GroupsResponse.self, from: data)
+                    let groups = groupsResponce.response.items
+                    completion(.success(groups))
+                } catch {
+                    completion(.failure(.decodeError))
+                }
             }
         }
     }

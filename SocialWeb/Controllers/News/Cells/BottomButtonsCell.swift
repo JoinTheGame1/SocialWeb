@@ -40,6 +40,10 @@ class BottomButtonsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     private func setupCell() {
         NSLayoutConstraint.activate([
             likeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
@@ -62,29 +66,14 @@ class BottomButtonsCell: UITableViewCell {
         ])
     }
     
-    public func configure(with like: TestLike, comments: Int, repost: TestRepost) {
-        likeButton.configure(counter: like.likes, liked: like.liked)
+    public func configure(news: NewsItem) {
+        let likes = news.likes?.count ?? 0
+        let liked = news.likes?.liked ?? false
+        likeButton.configure(counter: likes, liked: liked)
+        let comments = news.comments?.count ?? 0
         commentButton.configure(counter: comments)
-        repostButton.configure(counter: repost.reposts, reposted: repost.reposted)
-    }
-}
-
-class TestLike {
-    let likes: Int
-    let liked: Bool
-    
-    init(likes: Int, liked: Bool) {
-        self.likes = likes
-        self.liked = liked
-    }
-}
-
-class TestRepost {
-    let reposts: Int
-    let reposted: Bool
-    
-    init(reposts: Int, reposted: Bool) {
-        self.reposts = reposts
-        self.reposted = reposted
+        let reposts = news.reposts?.count ?? 0
+        let reposted = news.reposts?.reposted ?? false
+        repostButton.configure(counter: reposts, reposted: reposted)
     }
 }

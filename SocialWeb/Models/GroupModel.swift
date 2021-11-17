@@ -20,8 +20,7 @@ struct Groups: Codable {
 }
 
 // MARK: - Group
-class Group: Object, Codable {
-    @objc dynamic var ownerId: Int = 0
+class Group: Object, Codable, ProfileRepresentable {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var photo: String = ""

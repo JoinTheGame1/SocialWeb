@@ -10,7 +10,6 @@ import Alamofire
 import RealmSwift
 
 final class FriendsService {
-    let realmService = RealmService()
     let baseUrl = "https://api.vk.com/method"
     let token = MySession.shared.token
     let userId = MySession.shared.userId
@@ -37,15 +36,15 @@ final class FriendsService {
             
             guard let data = response.data else { return }
             var friends = [Friend]()
-            
-            do {
-                let friendsResponse = try JSONDecoder().decode(FriendsResponse.self, from: data)
-                friends = friendsResponse.response.items
-            } catch {
-                print(error)
+            DispatchQueue.main.async {
+                do {
+                    let friendsResponse = try JSONDecoder().decode(FriendsResponse.self, from: data)
+                    friends = friendsResponse.response.items
+                } catch {
+                    print(error)
+                }
+                RealmService.shared.cache(friends)
             }
-            
-            self.realmService.cache(friends)
         }
     }
 }

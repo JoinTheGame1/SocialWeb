@@ -12,8 +12,9 @@ final class AllGroupsViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let searchGroupsService = GroupsService()
-    var searchGroups = [Group]()
+    private let searchGroupsService = GroupsService()
+    private let realm = RealmService.shared.realm
+    private var searchGroups = [Group]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +34,9 @@ final class AllGroupsViewController: UIViewController{
     }
     
     func followGroup(_ row: Int) {
+        guard let realm = self.realm else { return }
         let group = searchGroups.remove(at: row)
-        group.ownerId = Int(MySession.shared.userId)!
         do {
-            let realm = try Realm()
             realm.beginWrite()
             realm.add(group)
             try realm.commitWrite()
@@ -53,6 +53,7 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.separatorStyle = .none
         let cell = tableView.dequeueReusableCell(withIdentifier: AllGroupsCell.identifier, for: indexPath) as! AllGroupsCell
         cell.configure(searchGroups[indexPath.row])
         cell.buttonFollowGroup = { _ in

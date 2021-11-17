@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     private var collectionView: UICollectionView?
     private let myId = MySession.shared.userId
     private let photosService = PhotosService()
+    private let realm = RealmService.shared.realm
     private var realmPhotos: Results<Photo>?
     private var token: NotificationToken?
     
@@ -41,7 +42,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func pairTableAndRealm() {
-        guard let realm = try? Realm() else { return }
+        guard let realm = self.realm else { return }
         self.realmPhotos = realm.objects(Photo.self).filter("ownerId == %D", Int(self.myId) ?? 0)
         self.token = realmPhotos?.observe { [weak self] (changes: RealmCollectionChange) in
             guard let self = self,

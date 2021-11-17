@@ -29,6 +29,7 @@
 		057B5CA92701F6EA004457C4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CA82701F6EA004457C4 /* ProfileViewController.swift */; };
 		057B5CAB2702027C004457C4 /* GroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CAA2702027C004457C4 /* GroupsService.swift */; };
 		057B5CAD2703E473004457C4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CAC2703E473004457C4 /* PhotoModel.swift */; };
+		057BABDE273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABDD273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift */; };
 		059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */; };
 		059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */; };
 		059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EE26BF72A300B3F2D8 /* PushAnimator.swift */; };
@@ -45,7 +46,8 @@
 		05A13D39273171A30052104F /* RepostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D38273171A30052104F /* RepostButton.swift */; };
 		05A13D3B273176D00052104F /* BottomButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D3A273176D00052104F /* BottomButtonsCell.swift */; };
 		05A13D3F273177F40052104F /* CommentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D3E273177F40052104F /* CommentButton.swift */; };
-		05A13D412732129C0052104F /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D402732129C0052104F /* LikeView.swift */; };
+		05A13D442736E2180052104F /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D432736E2170052104F /* NewsModel.swift */; };
+		05A13D4A273945EB0052104F /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13D49273945EB0052104F /* NewsService.swift */; };
 		05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */; };
 		05A67EBD266E56C600F86425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBC266E56C600F86425 /* AppDelegate.swift */; };
 		05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A67EBE266E56C600F86425 /* SceneDelegate.swift */; };
@@ -83,6 +85,7 @@
 		057B5CA82701F6EA004457C4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		057B5CAA2702027C004457C4 /* GroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsService.swift; sourceTree = "<group>"; };
 		057B5CAC2703E473004457C4 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		057BABDD273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
 		059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
 		059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		059038EE26BF72A300B3F2D8 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
@@ -99,7 +102,8 @@
 		05A13D38273171A30052104F /* RepostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepostButton.swift; sourceTree = "<group>"; };
 		05A13D3A273176D00052104F /* BottomButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsCell.swift; sourceTree = "<group>"; };
 		05A13D3E273177F40052104F /* CommentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentButton.swift; sourceTree = "<group>"; };
-		05A13D402732129C0052104F /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
+		05A13D432736E2170052104F /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		05A13D49273945EB0052104F /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		05A3592626B8E15C0018B2D2 /* FriendAllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAllPhotosViewController.swift; sourceTree = "<group>"; };
 		05A67EB9266E56C600F86425 /* SocialWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A67EBC266E56C600F86425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,9 +155,29 @@
 				057B5C9E2700ED77004457C4 /* FriendsService.swift */,
 				057B5CA02701E912004457C4 /* PhotosService.swift */,
 				057B5CAA2702027C004457C4 /* GroupsService.swift */,
+				05A13D49273945EB0052104F /* NewsService.swift */,
 				054A564E2718798900988887 /* RealmService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		057BABDF273E97F3005EA0FA /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				059038EE26BF72A300B3F2D8 /* PushAnimator.swift */,
+				059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		057BABE0273E981F005EA0FA /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0595C92726A97C1500839D44 /* LikeButton.swift */,
+				05A13D38273171A30052104F /* RepostButton.swift */,
+				05A13D3E273177F40052104F /* CommentButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		059038E626BF582000B3F2D8 /* Storyboards */ = {
@@ -223,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				05A13D3227304C2E0052104F /* MyDateFormatter.swift */,
+				057BABDD273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,15 +298,11 @@
 		05A819FF26BEDBDC00D28255 /* CustomElements */ = {
 			isa = PBXGroup;
 			children = (
-				0595C92726A97C1500839D44 /* LikeButton.swift */,
-				05A13D38273171A30052104F /* RepostButton.swift */,
-				05A13D3E273177F40052104F /* CommentButton.swift */,
+				057BABE0273E981F005EA0FA /* Buttons */,
+				057BABDF273E97F3005EA0FA /* Animators */,
 				0523F9C126AD75B4006EB1D2 /* LettersControl.swift */,
 				059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */,
-				059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */,
-				059038EE26BF72A300B3F2D8 /* PushAnimator.swift */,
 				059038F226BF81C300B3F2D8 /* MainNavigationController.swift */,
-				05A13D402732129C0052104F /* LikeView.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -362,6 +383,7 @@
 		05E483A22673C7F8006C80CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				05A13D432736E2170052104F /* NewsModel.swift */,
 				05E4839126738362006C80CB /* GroupModel.swift */,
 				05E4839326738375006C80CB /* FriendModel.swift */,
 				057B5CAC2703E473004457C4 /* PhotoModel.swift */,
@@ -532,6 +554,7 @@
 				054A564F2718798900988887 /* RealmService.swift in Sources */,
 				05A13D2C272E1D640052104F /* NewsTextCell.swift in Sources */,
 				05A13D39273171A30052104F /* RepostButton.swift in Sources */,
+				057BABDE273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift in Sources */,
 				0523F9BF26AC4708006EB1D2 /* FriendCollectionViewCell.swift in Sources */,
 				057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */,
 				05A13D1F27289D980052104F /* FirebaseUser.swift in Sources */,
@@ -550,14 +573,15 @@
 				059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */,
 				0523F9D026AF0B13006EB1D2 /* FriendTableViewCell.swift in Sources */,
 				05A13D3B273176D00052104F /* BottomButtonsCell.swift in Sources */,
+				05A13D442736E2180052104F /* NewsModel.swift in Sources */,
 				05A13D3F273177F40052104F /* CommentButton.swift in Sources */,
 				05A67EBF266E56C600F86425 /* SceneDelegate.swift in Sources */,
 				05A13D2127289DA90052104F /* FirebaseGroup.swift in Sources */,
-				05A13D412732129C0052104F /* LikeView.swift in Sources */,
 				059038F326BF81C300B3F2D8 /* MainNavigationController.swift in Sources */,
 				05A13D29272DB9DF0052104F /* NewsViewController.swift in Sources */,
 				059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */,
 				05A819FD26BC4ABC00D28255 /* FriendAllPhotosView.swift in Sources */,
+				05A13D4A273945EB0052104F /* NewsService.swift in Sources */,
 				0595C92826A97C1500839D44 /* LikeButton.swift in Sources */,
 				0523F9CB26ADFFFF006EB1D2 /* AllGroupsCell.swift in Sources */,
 			);

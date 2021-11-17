@@ -51,7 +51,7 @@ class RepostButton: UIButton {
 
         UIButton.transition(with: self,
                             duration: 0.5,
-                            options: [.transitionFlipFromLeft, .allowUserInteraction],
+                            options: [.transitionFlipFromRight, .allowUserInteraction],
                             animations: {
                                 self.counter += self.reposted ? 1 : -1
                                 self.configure(counter: self.counter, reposted: self.reposted)

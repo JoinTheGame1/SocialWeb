@@ -36,7 +36,7 @@ class FriendTableViewCell: UITableViewCell {
     }
     
     func configure(_ friend: Friend) {
-        let url = URL(string: friend.photo100)
+        let url = URL(string: friend.photo)
         friendImageView.kf.setImage(with: url)
         friendImageView.layer.cornerRadius = friendImageView.bounds.height / 2
         friendImageView.layer.borderWidth = 1

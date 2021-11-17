@@ -8,7 +8,7 @@ final class MyFriendsViewController: UIViewController{
     @IBOutlet weak var searchBar: UISearchBar!
     
     private let friendsService = FriendsService()
-    private let realmService = RealmService()
+    private let realm = RealmService.shared.realm
     private var friends = [Friend]()
     private var realmFriends: Results<Friend>?
     private var sortedFriends = [[Friend]]()
@@ -29,7 +29,7 @@ final class MyFriendsViewController: UIViewController{
     }
     
     private func pairTableAndRealm() {
-        guard let realm = try? Realm() else { return }
+        guard let realm = self.realm else { return }
         self.realmFriends = realm.objects(Friend.self)
         self.token = realmFriends?.observe { [weak self] (changes: RealmCollectionChange) in
             guard let self = self else { return }
@@ -110,6 +110,7 @@ extension MyFriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.separatorStyle = .none
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.identifier, for: indexPath) as? FriendTableViewCell
         else { return UITableViewCell() }
         cell.configure(searching ? searchFriends[indexPath.row] : sortedFriends[indexPath.section][indexPath.row])

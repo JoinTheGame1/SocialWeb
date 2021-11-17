@@ -41,8 +41,8 @@ class NewsImageCell: UITableViewCell {
         ])
     }
     
-    func configure(with imageUrl: String) {
-        let url = URL(string: imageUrl)
+    func configure(with image: Photo?) {
+        guard let url = URL(string: image?.sizes.last?.url ?? "") else { return }
         myImageView.kf.setImage(with: url)
         
     }

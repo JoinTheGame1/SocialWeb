@@ -12,6 +12,7 @@ class FriendCollectionViewController: UIViewController{
     private var collectionView: UICollectionView?
     var friend: Friend!
     private var realmPhotos: Results<Photo>?
+    private var realm = RealmService.shared.realm
     private var token: NotificationToken?
     private let photosService = PhotosService()
     
@@ -35,13 +36,13 @@ class FriendCollectionViewController: UIViewController{
         collectionView.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: FriendCollectionViewCell.identifier)
         
         view.addSubview(collectionView)
-        navigationItem.title = friend!.firstName + " " + friend!.lastName
+        navigationItem.title = friend.name
         photosService.getPhotos(whom: String(friend.id))
         pairTableAndRealm()
     }
     
     private func pairTableAndRealm() {
-        guard let realm = try? Realm() else { return }
+        guard let realm = self.realm else { return }
         self.realmPhotos = realm.objects(Photo.self).filter("ownerId == %D", Int(self.friend.id))
         self.token = realmPhotos?.observe { [weak self] (changes: RealmCollectionChange) in
             guard let self = self,

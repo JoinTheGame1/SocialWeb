@@ -35,7 +35,12 @@ class NewsTextCell: UITableViewCell {
         super.layoutSubviews()
     }
     
-    public func configure(with text: String) {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        myTextLabel.text = nil
+    }
+    
+    public func configure(with text: String?) {
         myTextLabel.text = text
         myTextLabel.numberOfLines = 0
     }
