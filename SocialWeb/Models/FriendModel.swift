@@ -8,11 +8,6 @@
 import Foundation
 import RealmSwift
 
-// MARK: - FriendsResponse
-struct FriendsResponse: Codable {
-    let response: Friends
-}
-
 // MARK: - Friends
 struct Friends: Codable {
     let count: Int

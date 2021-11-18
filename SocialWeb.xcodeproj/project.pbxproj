@@ -30,6 +30,11 @@
 		057B5CAB2702027C004457C4 /* GroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CAA2702027C004457C4 /* GroupsService.swift */; };
 		057B5CAD2703E473004457C4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B5CAC2703E473004457C4 /* PhotoModel.swift */; };
 		057BABDE273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABDD273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift */; };
+		057BABE42745B6E3005EA0FA /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABE32745B6E3005EA0FA /* Response.swift */; };
+		057BABE82745BACB005EA0FA /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABE72745BACB005EA0FA /* AsyncOperation.swift */; };
+		057BABEA2745C227005EA0FA /* GetDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABE92745C226005EA0FA /* GetDataOperation.swift */; };
+		057BABEC2745C2D1005EA0FA /* ParseDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABEB2745C2D1005EA0FA /* ParseDataOperation.swift */; };
+		057BABEE2745D189005EA0FA /* SaveDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABED2745D189005EA0FA /* SaveDataOperation.swift */; };
 		059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */; };
 		059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */; };
 		059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EE26BF72A300B3F2D8 /* PushAnimator.swift */; };
@@ -86,6 +91,11 @@
 		057B5CAA2702027C004457C4 /* GroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsService.swift; sourceTree = "<group>"; };
 		057B5CAC2703E473004457C4 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		057BABDD273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
+		057BABE32745B6E3005EA0FA /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		057BABE72745BACB005EA0FA /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		057BABE92745C226005EA0FA /* GetDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataOperation.swift; sourceTree = "<group>"; };
+		057BABEB2745C2D1005EA0FA /* ParseDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseDataOperation.swift; sourceTree = "<group>"; };
+		057BABED2745D189005EA0FA /* SaveDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataOperation.swift; sourceTree = "<group>"; };
 		059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
 		059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		059038EE26BF72A300B3F2D8 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
@@ -151,11 +161,8 @@
 		057B5C9D2700ED52004457C4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				057BABE12745B638005EA0FA /* NetworkingService */,
 				057B5C9926F8C6BD004457C4 /* MySession.swift */,
-				057B5C9E2700ED77004457C4 /* FriendsService.swift */,
-				057B5CA02701E912004457C4 /* PhotosService.swift */,
-				057B5CAA2702027C004457C4 /* GroupsService.swift */,
-				05A13D49273945EB0052104F /* NewsService.swift */,
 				054A564E2718798900988887 /* RealmService.swift */,
 			);
 			path = Services;
@@ -178,6 +185,46 @@
 				05A13D3E273177F40052104F /* CommentButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		057BABE12745B638005EA0FA /* NetworkingService */ = {
+			isa = PBXGroup;
+			children = (
+				057BABE22745B6A5005EA0FA /* Operation */,
+				057B5C9E2700ED77004457C4 /* FriendsService.swift */,
+				057B5CA02701E912004457C4 /* PhotosService.swift */,
+				057B5CAA2702027C004457C4 /* GroupsService.swift */,
+				05A13D49273945EB0052104F /* NewsService.swift */,
+			);
+			path = NetworkingService;
+			sourceTree = "<group>";
+		};
+		057BABE22745B6A5005EA0FA /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				057BABE92745C226005EA0FA /* GetDataOperation.swift */,
+				057BABEB2745C2D1005EA0FA /* ParseDataOperation.swift */,
+				057BABED2745D189005EA0FA /* SaveDataOperation.swift */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		057BABE52745B7AF005EA0FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0523F9C926ADFFFF006EB1D2 /* AllGroupsCell.swift */,
+				0523F9CA26ADFFFF006EB1D2 /* AllGroupsCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		057BABE62745B7CC005EA0FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0523F9C526ADFACD006EB1D2 /* GroupCell.swift */,
+				0523F9C626ADFACD006EB1D2 /* GroupCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		059038E626BF582000B3F2D8 /* Storyboards */ = {
@@ -226,8 +273,8 @@
 		05A13D25272DB7B00052104F /* News */ = {
 			isa = PBXGroup;
 			children = (
-				05A13D2A272E1BC10052104F /* Cells */,
 				05A13D28272DB9DF0052104F /* NewsViewController.swift */,
+				05A13D2A272E1BC10052104F /* Cells */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -248,6 +295,7 @@
 			children = (
 				05A13D3227304C2E0052104F /* MyDateFormatter.swift */,
 				057BABDD273E9591005EA0FA /* MyRelativeDateTimeFormatter.swift */,
+				057BABE72745BACB005EA0FA /* AsyncOperation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -339,37 +387,19 @@
 		05B96FE5266FD22200393175 /* My groups */ = {
 			isa = PBXGroup;
 			children = (
-				05B96FE7266FD23700393175 /* Controller */,
-				0523F9C526ADFACD006EB1D2 /* GroupCell.swift */,
-				0523F9C626ADFACD006EB1D2 /* GroupCell.xib */,
+				05B96FEA266FD2B400393175 /* MyGroupsViewController.swift */,
+				057BABE62745B7CC005EA0FA /* Cell */,
 			);
 			path = "My groups";
-			sourceTree = "<group>";
-		};
-		05B96FE7266FD23700393175 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				05B96FEA266FD2B400393175 /* MyGroupsViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		05E48395267385DB006C80CB /* AllGroups */ = {
 			isa = PBXGroup;
 			children = (
-				05E48396267385E7006C80CB /* Controller */,
-				0523F9C926ADFFFF006EB1D2 /* AllGroupsCell.swift */,
-				0523F9CA26ADFFFF006EB1D2 /* AllGroupsCell.xib */,
+				05E4839726739CDF006C80CB /* AllGroupsViewController.swift */,
+				057BABE52745B7AF005EA0FA /* Cell */,
 			);
 			path = AllGroups;
-			sourceTree = "<group>";
-		};
-		05E48396267385E7006C80CB /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				05E4839726739CDF006C80CB /* AllGroupsViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		05E483992673BCAB006C80CB /* CollectionViewCell */ = {
@@ -383,6 +413,7 @@
 		05E483A22673C7F8006C80CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				057BABE32745B6E3005EA0FA /* Response.swift */,
 				05A13D432736E2170052104F /* NewsModel.swift */,
 				05E4839126738362006C80CB /* GroupModel.swift */,
 				05E4839326738375006C80CB /* FriendModel.swift */,
@@ -559,6 +590,8 @@
 				057B5CA72701F58A004457C4 /* ProfileCollectionViewCell.swift in Sources */,
 				05A13D1F27289D980052104F /* FirebaseUser.swift in Sources */,
 				05E4839B2673BCCE006C80CB /* FriendCollectionViewController.swift in Sources */,
+				057BABE42745B6E3005EA0FA /* Response.swift in Sources */,
+				057BABEC2745C2D1005EA0FA /* ParseDataOperation.swift in Sources */,
 				05E4839826739CDF006C80CB /* AllGroupsViewController.swift in Sources */,
 				05A3592726B8E15C0018B2D2 /* FriendAllPhotosViewController.swift in Sources */,
 				057B5C9F2700ED77004457C4 /* FriendsService.swift in Sources */,
@@ -566,11 +599,14 @@
 				057B5C9C27009EC9004457C4 /* VKAuthorizeViewController.swift in Sources */,
 				057B5C9A26F8C6BD004457C4 /* MySession.swift in Sources */,
 				05A13D30273044BF0052104F /* NewsAuthorAndDateCell.swift in Sources */,
+				057BABEA2745C227005EA0FA /* GetDataOperation.swift in Sources */,
 				057B5CA92701F6EA004457C4 /* ProfileViewController.swift in Sources */,
 				057B5CAD2703E473004457C4 /* PhotoModel.swift in Sources */,
+				057BABEE2745D189005EA0FA /* SaveDataOperation.swift in Sources */,
 				05A13D37273059830052104F /* NewsTestModel.swift in Sources */,
 				059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */,
 				059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */,
+				057BABE82745BACB005EA0FA /* AsyncOperation.swift in Sources */,
 				0523F9D026AF0B13006EB1D2 /* FriendTableViewCell.swift in Sources */,
 				05A13D3B273176D00052104F /* BottomButtonsCell.swift in Sources */,
 				05A13D442736E2180052104F /* NewsModel.swift in Sources */,

@@ -8,17 +8,6 @@
 import Foundation
 import RealmSwift
 
-// MARK: - GroupsResponse
-struct GroupsResponse: Codable {
-    let response: Groups
-}
-
-// MARK: - Groups
-struct Groups: Codable {
-    let count: Int
-    let items: [Group]
-}
-
 // MARK: - Group
 class Group: Object, Codable, ProfileRepresentable {
     @objc dynamic var id: Int = 0
