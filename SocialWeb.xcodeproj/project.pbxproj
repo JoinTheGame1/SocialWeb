@@ -284,9 +284,9 @@
 		05A13D2A272E1BC10052104F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				05A13D2F273044BF0052104F /* NewsAuthorAndDateCell.swift */,
 				05A13D2B272E1D640052104F /* NewsTextCell.swift */,
 				05A13D2D272F5C8C0052104F /* NewsImageCell.swift */,
-				05A13D2F273044BF0052104F /* NewsAuthorAndDateCell.swift */,
 				05A13D3A273176D00052104F /* BottomButtonsCell.swift */,
 			);
 			path = Cells;

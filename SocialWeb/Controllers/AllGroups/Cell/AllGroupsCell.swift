@@ -33,12 +33,6 @@ class AllGroupsCell: UITableViewCell {
         avatarImageView.isUserInteractionEnabled = true
         avatarImageView.addGestureRecognizer(tap)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func configure(_ group: Group) {
         let url = URL(string: group.photo)

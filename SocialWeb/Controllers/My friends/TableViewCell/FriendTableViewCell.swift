@@ -30,10 +30,6 @@ class FriendTableViewCell: UITableViewCell {
         friendImageView.isUserInteractionEnabled = true
         friendImageView.addGestureRecognizer(tap)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     func configure(_ friend: Friend) {
         let url = URL(string: friend.photo)

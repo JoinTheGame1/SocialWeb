@@ -40,12 +40,12 @@ class FriendCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
+        setupCell()
+    }
+    
+    private func setupCell() {
         NSLayoutConstraint.activate([
             friendImageShadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             friendImageShadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -63,10 +63,6 @@ class FriendCollectionViewCell: UICollectionViewCell {
             likeButton.heightAnchor.constraint(equalToConstant: 24)
         ])
         
-        setupCell()
-    }
-    
-    private func setupCell() {
         friendImageShadowView.layer.cornerRadius = friendImageShadowView.frame.size.height / 2
         friendImageShadowView.layer.backgroundColor = UIColor.white.cgColor
         friendImageShadowView.layer.shadowColor = UIColor.darkGray.cgColor

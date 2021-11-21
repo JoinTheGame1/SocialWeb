@@ -34,6 +34,10 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        setupCell()
+    }
+    
+    private func setupCell() {
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -47,10 +51,6 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
             likeButton.heightAnchor.constraint(equalToConstant: 24)
         ])
         
-        setupCell()
-    }
-    
-    private func setupCell() {
         photoImageView.layer.cornerRadius = photoImageView.frame.size.height / 2
         photoImageView.layer.backgroundColor = UIColor.white.cgColor
         photoImageView.layer.borderWidth = 2
