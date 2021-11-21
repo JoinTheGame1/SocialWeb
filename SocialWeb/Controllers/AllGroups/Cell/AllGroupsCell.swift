@@ -11,7 +11,6 @@ import Kingfisher
 class AllGroupsCell: UITableViewCell {
     static let identifier = "AllGroupsCell"
     var buttonFollowGroup: ((UITableViewCell) -> Void)?
-    @IBOutlet private var avatarBackground: UIView!
     @IBOutlet private var avatarImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel!
     @IBAction func followGroup(_ sender: Any) {

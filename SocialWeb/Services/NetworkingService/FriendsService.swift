@@ -28,23 +28,18 @@ final class FriendsService {
             ]
         
         let url = baseUrl + method
+        let request = AF.request(url, method: .get, parameters: parameters)
         
-        AF.request(url, method: .get, parameters: parameters).responseJSON { response in
-            if let error = response.error {
-                print(error)
-            }
-            
-            guard let data = response.data else { return }
-            var friends = [Friend]()
-            DispatchQueue.main.async {
-                do {
-                    let friendsResponse = try JSONDecoder().decode(FriendsResponse.self, from: data)
-                    friends = friendsResponse.response.items
-                } catch {
-                    print(error)
-                }
-                RealmService.shared.cache(friends)
-            }
-        }
+        let operationQueue = OperationQueue()
+        let getData = GetDataOperation(request: request)
+        let parseData = ParseDataOperation<Friend>()
+        let saveData = SaveDataOperation<Friend>()
+        
+        parseData.addDependency(getData)
+        saveData.addDependency(parseData)
+        
+        operationQueue.addOperation(getData)
+        operationQueue.addOperation(parseData)
+        OperationQueue.main.addOperation(saveData)
     }
 }

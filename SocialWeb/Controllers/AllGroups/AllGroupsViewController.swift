@@ -80,7 +80,9 @@ extension AllGroupsViewController: UISearchBarDelegate {
                     print("Server error...")
                 case .success(let groups):
                     self.searchGroups = groups
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }

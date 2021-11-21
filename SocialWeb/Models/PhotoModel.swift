@@ -8,11 +8,6 @@
 import Foundation
 import RealmSwift
 
-// MARK: - PhotosResponse
-struct PhotosResponse: Codable {
-    let response: Photos
-}
-
 // MARK: - Photos
 struct Photos: Codable {
     let count: Int
