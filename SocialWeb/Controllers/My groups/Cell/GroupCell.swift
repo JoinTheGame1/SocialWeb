@@ -11,7 +11,6 @@ class GroupCell: UITableViewCell {
     static let identifier = "GroupCell"
     var buttonUnfollowGroup: ((UITableViewCell) -> Void)?
     
-    @IBOutlet private var avatarBackground: UIView!
     @IBOutlet private var avatarImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel!
     @IBAction func deleteGroup(_ sender: Any) {
@@ -37,6 +36,8 @@ class GroupCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        avatarImageView.image = nil
+        nameLabel.text = nil
     }
     
     func configure(_ group: Group) {

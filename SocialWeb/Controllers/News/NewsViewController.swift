@@ -12,6 +12,8 @@ class NewsViewController: UIViewController {
     private var news = [NewsItem]()
     private var profiles = [Friend]()
     private var groups = [Group]()
+    private var nextFrom = ""
+    private var isLoading = false
     
     private let tableView: UITableView = {
         let table = UITableView(frame: CGRect.zero, style: .insetGrouped)
@@ -40,14 +42,19 @@ class NewsViewController: UIViewController {
         getNews()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
     }
     
     private func getNews() {
-        self.newsService.getNews()
-            .done { newsItem in
-                self.news = newsItem.items
-                self.profiles = newsItem.profiles
-                self.groups = newsItem.groups
+        self.newsService.getDataNews()
+            .then(on: DispatchQueue.global(), newsService.getParsedData(_:))
+            .get({ response in
+                self.nextFrom = response.nextFrom ?? ""
+            })
+            .then(on: DispatchQueue.global(), newsService.getNews(_:))
+            .done(on: DispatchQueue.main) { [weak self] news in
+                guard let self = self else { return }
+                self.news = news
                 self.tableView.reloadData()
             }
             .catch { error in
@@ -77,21 +84,28 @@ class NewsViewController: UIViewController {
 
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         if indexPath.row == 2 {
-            let newsItem = news[indexPath.section]
-            guard let image = newsItem.attachments?[0].photo else { return UITableView.automaticDimension}
-            let size = image.sizes.last
+            guard
+                let urls = news[indexPath.section].photosURL,
+                !urls.isEmpty
+            else {
+                return 0
+            }
             
-            let imageWidth = CGFloat(size?.width ?? 0)
-            let imageHeight = CGFloat(size?.height ?? 0)
-            guard imageWidth > 0 && imageHeight > 0 else { return UITableView.automaticDimension }
-            let requiredWidth = tableView.frame.width
-            let widthRatio = requiredWidth / imageWidth
-            let requiredHeight = imageHeight * widthRatio
-            return requiredHeight
+            let width = view.frame.width
+            let post = news[indexPath.section]
+            let cellHeight = width * post.aspectRatio
+            return cellHeight
         }
-        else { return UITableView.automaticDimension }
+        else if indexPath.row == 1 {
+            if news[indexPath.section].text.isEmpty {
+                return 0
+            }
+            return UITableView.automaticDimension
+        }
+        else {
+            return UITableView.automaticDimension
+        }
     }
 }
 
@@ -107,36 +121,61 @@ extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
-        let news = news[indexPath.section]
+        let post = news[indexPath.section]
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsAuthorAndDateCell", for: indexPath) as!
                 NewsAuthorAndDateCell
-            let date = news.getStringDate()
-            let profiles: [ProfileRepresentable] = news.sourceId >= 0 ? profiles : groups
-            let sourceId = news.sourceId >= 0 ? news.sourceId : -news.sourceId
-            let profileRepresentable = profiles.first { profiles -> Bool in
-                profiles.id == sourceId
-            }
-            
-            cell.configure(profile: profileRepresentable, date: date)
+            let date = post.getStringDate()
+            guard let urlImage = post.photoURL,
+                  let authorName = post.authorName
+            else { return UITableViewCell() }
+            cell.configure(authorName: authorName, photoURL: urlImage, date: date)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTextCell", for: indexPath) as! NewsTextCell
-            cell.configure(with: news.text)
+            cell.configure(with: post.text)
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsImageCell", for: indexPath) as! NewsImageCell
-            cell.configure(with: news.attachments?[0].photo)
+            guard let photoURL = post.photosURL?.first else { return UITableViewCell() }
+            cell.configure(with: photoURL)
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BottomButtonsCell", for: indexPath) as! BottomButtonsCell
-            cell.layer.cornerRadius = 25
-            cell.layer.masksToBounds = true
-            cell.configure(news: news)
+            cell.configure(news: post)
             return cell
         default:
             return UITableViewCell()
+        }
+    }
+}
+
+extension NewsViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let maxSection = indexPaths.map({ $0.section }).max() else {
+            return
+        }
+
+        if maxSection > news.count - 3, !isLoading {
+            isLoading = true
+
+            self.newsService.getDataNews(self.nextFrom)
+                .then(on: DispatchQueue.global(), newsService.getParsedData(_:))
+                .get({ response in
+                    self.nextFrom = response.nextFrom ?? ""
+                })
+                .then(on: DispatchQueue.global(), newsService.getNews(_:))
+                .done(on: DispatchQueue.main) { [weak self] news in
+                    guard let self = self else { return }
+                    let indexSet = IndexSet(integersIn: self.news.count..<self.news.count + news.count)
+                    self.news.append(contentsOf: news)
+                    self.tableView.insertSections(indexSet, with: .automatic)
+                }.ensure {
+                    self.isLoading = false
+                }.catch { error in
+                    print(error)
+                }
         }
     }
 }

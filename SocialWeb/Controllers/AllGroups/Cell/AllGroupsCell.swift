@@ -34,6 +34,12 @@ class AllGroupsCell: UITableViewCell {
         avatarImageView.addGestureRecognizer(tap)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarImageView.image = nil
+        nameLabel.text = nil
+    }
+    
     func configure(_ group: Group) {
         let url = URL(string: group.photo)
         avatarImageView.kf.setImage(with: url)

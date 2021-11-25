@@ -14,7 +14,6 @@ class NewsAuthorAndDateCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
-        imageView.backgroundColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -22,7 +21,6 @@ class NewsAuthorAndDateCell: UITableViewCell {
     
     private let authorNameLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,7 +28,6 @@ class NewsAuthorAndDateCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.systemGray
-        label.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,14 +52,15 @@ class NewsAuthorAndDateCell: UITableViewCell {
     }
     
     private func setupCell() {
+        let topConstraint = authorAvatarImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8)
         NSLayoutConstraint.activate([
-            authorAvatarImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            topConstraint,
             authorAvatarImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             authorAvatarImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             authorAvatarImage.heightAnchor.constraint(equalToConstant: 50),
             authorAvatarImage.widthAnchor.constraint(equalToConstant: 50),
             
-            authorNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            authorNameLabel.topAnchor.constraint(equalTo: authorAvatarImage.topAnchor),
             authorNameLabel.leadingAnchor.constraint(equalTo: authorAvatarImage.trailingAnchor, constant: 8),
             authorNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
@@ -70,13 +68,12 @@ class NewsAuthorAndDateCell: UITableViewCell {
             dateLabel.leadingAnchor.constraint(equalTo: authorNameLabel.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: authorNameLabel.trailingAnchor)
         ])
+        topConstraint.priority = .init(999)
     }
     
-    public func configure(profile: ProfileRepresentable?, date: String) {
-        guard let profile = profile,
-              let url = URL(string: profile.photo)
-        else { return }
-        authorNameLabel.text = profile.name
+    public func configure(authorName: String, photoURL: String, date: String) {
+        guard let url = URL(string: photoURL) else { return }
+        authorNameLabel.text = authorName
         dateLabel.text = date
         authorAvatarImage.kf.setImage(with: url)
     }

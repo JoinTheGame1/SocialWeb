@@ -37,12 +37,16 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         setupCell()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        photoImageView.image = nil
+    }
+    
     private func setupCell() {
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             photoImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            
             
             likeButton.widthAnchor.constraint(equalToConstant: 60),
             likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),

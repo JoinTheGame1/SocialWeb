@@ -5,7 +5,7 @@
 //  Created by Никитка on 29.09.2021.
 //
 
-import Foundation
+import UIKit
 import RealmSwift
 
 // MARK: - Photos
@@ -32,6 +32,8 @@ class Size: Object, Codable {
     @objc dynamic var url: String
     @objc dynamic var width: Int
     @objc dynamic var height: Int
+    
+    var aspectRatio: CGFloat { return CGFloat(height) / CGFloat(width) }
 }
 
 //MARK: - Like

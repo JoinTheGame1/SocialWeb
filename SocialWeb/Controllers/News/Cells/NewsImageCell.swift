@@ -33,17 +33,18 @@ class NewsImageCell: UITableViewCell {
     }
     
     private func setupCell (){
+        let topConstraint = myImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8)
         NSLayoutConstraint.activate([
-            myImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            topConstraint,
             myImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             myImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             myImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
+        topConstraint.priority = .init(999)
     }
     
-    func configure(with image: Photo?) {
-        guard let url = URL(string: image?.sizes.last?.url ?? "") else { return }
+    func configure(with image: String) {
+        guard let url = URL(string: image) else { return }
         myImageView.kf.setImage(with: url)
-        
     }
 }
