@@ -11,7 +11,7 @@ class NewsTextCell: UITableViewCell {
     static let identifier = "NewsTextCell"
     
     private var isLabelAtMaxHeight = false
-    var reload: (() -> Void)?
+    var controlTapped: (() -> Void)?
     
     private let myTextLabel: UILabel = {
         let label = UILabel()
@@ -61,7 +61,7 @@ class NewsTextCell: UITableViewCell {
             myTextLabel.numberOfLines = 0
         }
         isLabelAtMaxHeight.toggle()
-        reload?()
+        controlTapped?()
     }
     
     private func setupCell() {
