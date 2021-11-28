@@ -11,10 +11,12 @@ class NewsTextCell: UITableViewCell {
     static let identifier = "NewsTextCell"
     
     private var isLabelAtMaxHeight = false
+    var reload: (() -> Void)?
     
     private let myTextLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 6
         return label
     }()
     
@@ -23,7 +25,6 @@ class NewsTextCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Show more", for: .normal)
         button.setTitleColor(UIColor.link, for: .normal)
-        button.addTarget(self, action: #selector(onTap(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -31,6 +32,7 @@ class NewsTextCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(myTextLabel)
         contentView.addSubview(showMoreButton)
+        setupTapGesture()
         setupCell()
     }
     
@@ -43,28 +45,36 @@ class NewsTextCell: UITableViewCell {
         myTextLabel.text = nil
     }
     
-    @objc func onTap(_ sender: UIButton) {
+    private func setupTapGesture() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(self.onTap(_:)))
+        self.showMoreButton.addGestureRecognizer(tap)
+    }
+    
+    @objc func onTap(_ sender: UITapGestureRecognizer) {
         if isLabelAtMaxHeight {
-            showMoreButton.setTitle("Show less", for: .normal)
-            isLabelAtMaxHeight = false
+            showMoreButton.setTitle("Show more", for: .normal)
+            myTextLabel.numberOfLines = 6
         }
         else {
-            showMoreButton.setTitle("Show more", for: .normal)
-            isLabelAtMaxHeight = true
+            showMoreButton.setTitle("Show less", for: .normal)
+            myTextLabel.numberOfLines = 0
         }
+        isLabelAtMaxHeight.toggle()
+        reload?()
     }
     
     private func setupCell() {
         let labelTopConstraint = myTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8)
+        
         NSLayoutConstraint.activate([
             labelTopConstraint,
             myTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            myTextLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 200),
-            myTextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            myTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
-            showMoreButton.topAnchor.constraint(equalTo: myTextLabel.topAnchor),
-            showMoreButton.leadingAnchor.constraint(equalTo: myTextLabel.trailingAnchor, constant: 4),
-            showMoreButton.bottomAnchor.constraint(equalTo: myTextLabel.bottomAnchor)
+            showMoreButton.topAnchor.constraint(equalTo: myTextLabel.bottomAnchor, constant: 4),
+            showMoreButton.leadingAnchor.constraint(equalTo: myTextLabel.leadingAnchor),
+            showMoreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         labelTopConstraint.priority = .init(999)
     }

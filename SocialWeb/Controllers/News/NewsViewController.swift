@@ -135,6 +135,9 @@ extension NewsViewController: UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTextCell", for: indexPath) as! NewsTextCell
             cell.configure(with: post.text)
+            cell.controlTapped = { [weak self] in
+                self?.tableView.reloadData()
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsImageCell", for: indexPath) as! NewsImageCell

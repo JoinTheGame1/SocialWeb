@@ -16,10 +16,6 @@ class RealmService {
     
     func cache<T: Object>(_ data: [T], param: String, filterText: String) {
         do {
-            print("-----RealmFile-----")
-            print(realm?.configuration.fileURL!)
-            print("-------------------")
-            
             let oldData = (realm?.objects(T.self).filter("\(param) == \(filterText)"))!
             realm?.beginWrite()
             realm?.delete(oldData)
@@ -32,10 +28,6 @@ class RealmService {
     
     func cache<T: Object>(_ data: [T]) {
         do {
-            print("-----RealmFile-----")
-            print(realm?.configuration.fileURL!)
-            print("-------------------")
-            
             let oldData = (realm?.objects(T.self))!
             realm?.beginWrite()
             realm?.delete(oldData)

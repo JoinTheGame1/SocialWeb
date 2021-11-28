@@ -421,6 +421,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05A67ECD266E56CA00F86425 /* Build configuration list for PBXNativeTarget "SocialWeb" */;
 			buildPhases = (
+				057BABF727526E1B005EA0FA /* ShellScript */,
 				05A67EB5266E56C600F86425 /* Sources */,
 				05A67EB6266E56C600F86425 /* Frameworks */,
 				05A67EB7266E56C600F86425 /* Resources */,
@@ -494,6 +495,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		057BABF727526E1B005EA0FA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05A67EB5266E56C600F86425 /* Sources */ = {
