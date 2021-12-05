@@ -7,13 +7,14 @@
 
 import Foundation
 import Alamofire
+import PromiseKit
 
 class NewsService {
     let baseUrl = "https://api.vk.com/method"
     let token = MySession.shared.token
     let version = "5.131"
     
-    func getNews(completion: @escaping (Result<News, APIerror>) -> Void) {
+    func getNews() -> Promise<News> {
         let method = "/newsfeed.get"
 
         let parameters: Parameters = [
@@ -25,24 +26,25 @@ class NewsService {
         ]
 
         let url = baseUrl + method
-
-        AF.request(url, method: .get, parameters: parameters).responseJSON { response in
-            if let error = response.error {
-                completion(.failure(.serverError))
-                print(error)
-            }
-
-            guard let data = response.data else {
-                completion(.failure(.notData))
-                return
-            }
-            DispatchQueue.main.async {
+        
+        return Promise<News> { resolver in
+            AF.request(url, method: .get, parameters: parameters).responseJSON { response in
+                if let error = response.error {
+                    resolver.reject(APIerror.serverError)
+                    print(error)
+                }
+                
+                guard let data = response.data else {
+                    resolver.reject(APIerror.notData)
+                    return
+                }
+                
                 do {
                     let newsResponce = try JSONDecoder().decode(NewsResponce.self, from: data)
                     let news = newsResponce.response
-                    completion(.success(news))
+                    resolver.fulfill(news)
                 } catch {
-                    completion(.failure(.decodeError))
+                    resolver.reject(APIerror.decodeError)
                 }
             }
         }

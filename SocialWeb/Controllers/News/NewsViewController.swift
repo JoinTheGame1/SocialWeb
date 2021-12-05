@@ -43,17 +43,16 @@ class NewsViewController: UIViewController {
     }
     
     private func getNews() {
-        self.newsService.getNews { result in
-            switch result {
-            case .success(let newsItem):
+        self.newsService.getNews()
+            .done { newsItem in
                 self.news = newsItem.items
                 self.profiles = newsItem.profiles
                 self.groups = newsItem.groups
                 self.tableView.reloadData()
-            case .failure(let error):
+            }
+            .catch { error in
                 print(error.localizedDescription)
             }
-        }
     }
     
     @objc private func refresh() {

@@ -35,6 +35,7 @@
 		057BABEA2745C227005EA0FA /* GetDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABE92745C226005EA0FA /* GetDataOperation.swift */; };
 		057BABEC2745C2D1005EA0FA /* ParseDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABEB2745C2D1005EA0FA /* ParseDataOperation.swift */; };
 		057BABEE2745D189005EA0FA /* SaveDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BABED2745D189005EA0FA /* SaveDataOperation.swift */; };
+		057BABF127469828005EA0FA /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 057BABF027469828005EA0FA /* PromiseKit */; };
 		059038EB26BF677600B3F2D8 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EA26BF677600B3F2D8 /* InteractiveTransition.swift */; };
 		059038ED26BF6C7900B3F2D8 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EC26BF6C7900B3F2D8 /* PopAnimator.swift */; };
 		059038EF26BF72A300B3F2D8 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059038EE26BF72A300B3F2D8 /* PushAnimator.swift */; };
@@ -140,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057BABF127469828005EA0FA /* PromiseKit in Frameworks */,
 				054A564D270F9E4E00988887 /* RealmSwift in Frameworks */,
 				054A5644270E146400988887 /* Kingfisher in Frameworks */,
 				054A564A270E18F000988887 /* Alamofire in Frameworks */,
@@ -464,6 +466,7 @@
 				054A5643270E146400988887 /* Kingfisher */,
 				054A5649270E18F000988887 /* Alamofire */,
 				054A564C270F9E4E00988887 /* RealmSwift */,
+				057BABF027469828005EA0FA /* PromiseKit */,
 			);
 			productName = SocialWeb;
 			productReference = 05A67EB9266E56C600F86425 /* SocialWeb.app */;
@@ -496,6 +499,7 @@
 				054A5642270E146400988887 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				054A5648270E18F000988887 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				057BABEF27469828005EA0FA /* XCRemoteSwiftPackageReference "PromiseKit" */,
 			);
 			productRefGroup = 05A67EBA266E56C600F86425 /* Products */;
 			projectDirPath = "";
@@ -851,6 +855,14 @@
 				minimumVersion = 10.17.0;
 			};
 		};
+		057BABEF27469828005EA0FA /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.16.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -868,6 +880,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 054A564B270F9E4E00988887 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
+		};
+		057BABF027469828005EA0FA /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 057BABEF27469828005EA0FA /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
