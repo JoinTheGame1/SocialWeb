@@ -40,11 +40,5 @@ class CommentButton: UIButton {
         self.setTitleColor(UIColor.systemTeal, for: .normal)
         self.clipsToBounds = true
         self.layer.cornerRadius = 4.0
-        
-        // addTarget(self, action: #selector(onTap(_:)), for: .touchUpInside)
-    }
-    
-    @objc func onTap(_ sender: UIButton) {
-        // TODO: - Add some functional
     }
 }

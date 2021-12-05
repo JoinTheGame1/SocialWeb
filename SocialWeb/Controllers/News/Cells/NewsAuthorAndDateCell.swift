@@ -14,6 +14,7 @@ class NewsAuthorAndDateCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -21,6 +22,7 @@ class NewsAuthorAndDateCell: UITableViewCell {
     
     private let authorNameLabel: UILabel = {
         let label = UILabel()
+        label.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -28,6 +30,7 @@ class NewsAuthorAndDateCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.systemGray
+        label.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

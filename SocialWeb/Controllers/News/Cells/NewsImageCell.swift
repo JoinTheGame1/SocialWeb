@@ -20,7 +20,7 @@ class NewsImageCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(myImageView)
-        setupImageView()
+        setupCell()
     }
     
     required init?(coder: NSCoder) {
@@ -32,7 +32,7 @@ class NewsImageCell: UITableViewCell {
         myImageView.image = nil
     }
     
-    private func setupImageView (){
+    private func setupCell (){
         NSLayoutConstraint.activate([
             myImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             myImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
