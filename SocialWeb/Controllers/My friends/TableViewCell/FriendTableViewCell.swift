@@ -31,6 +31,12 @@ class FriendTableViewCell: UITableViewCell {
         friendImageView.addGestureRecognizer(tap)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        friendImageView.image = nil
+        nameLabel.text = nil
+    }
+    
     func configure(_ friend: Friend) {
         let url = URL(string: friend.photo)
         friendImageView.kf.setImage(with: url)

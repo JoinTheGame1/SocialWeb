@@ -40,40 +40,38 @@ class BottomButtonsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     private func setupCell() {
+        let topConstraint = likeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8)
         NSLayoutConstraint.activate([
-            likeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            topConstraint,
             likeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             likeButton.heightAnchor.constraint(equalToConstant: 30),
             likeButton.widthAnchor.constraint(equalToConstant: 80),
             likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
-            commentButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            commentButton.topAnchor.constraint(equalTo: likeButton.topAnchor),
             commentButton.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 8),
             commentButton.heightAnchor.constraint(equalToConstant: 30),
             commentButton.widthAnchor.constraint(equalToConstant: 80),
             commentButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
-            repostButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            repostButton.topAnchor.constraint(equalTo: likeButton.topAnchor),
             repostButton.leadingAnchor.constraint(equalTo: commentButton.trailingAnchor, constant: 8),
             repostButton.heightAnchor.constraint(equalToConstant: 30),
             repostButton.widthAnchor.constraint(equalToConstant: 80),
             repostButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
+        topConstraint.priority = .init(999)
     }
     
     public func configure(news: NewsItem) {
         let likes = news.likes?.count ?? 0
         let liked = news.likes?.liked ?? false
-        likeButton.configure(counter: likes, liked: liked)
         let comments = news.comments?.count ?? 0
-        commentButton.configure(counter: comments)
         let reposts = news.reposts?.count ?? 0
         let reposted = news.reposts?.reposted ?? false
+        likeButton.configure(counter: likes, liked: liked)
+        commentButton.configure(counter: comments)
         repostButton.configure(counter: reposts, reposted: reposted)
     }
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     private var collectionView: UICollectionView?
@@ -65,14 +64,9 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
-        do {
-            try Auth.auth().signOut()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let signInViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            present(signInViewController, animated: true, completion: nil)
-        } catch (let error) {
-            print("Auth sign out failed: \(error)")
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let signInViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        present(signInViewController, animated: true, completion: nil)
     }
 }
 
